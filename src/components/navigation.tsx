@@ -73,7 +73,11 @@ export const NavHeader = ({ locator, ...props }: NavHeaderProps) => {
     </div>
 }
 
-const NavMenuLayout = (props: NavMenuLayoutProps) => {
+const NavMenuLayout = (props: NavMenuLayoutProps) => <ClientOnly>
+    <NavMenuLayoutInner {...props } />
+</ClientOnly>
+
+const NavMenuLayoutInner = (props: NavMenuLayoutProps) => {
     // Generate a sequence number for animations
     let seq = 0
     const getSeq = () => ({ "--seq": seq++ } as CSSProperties)
