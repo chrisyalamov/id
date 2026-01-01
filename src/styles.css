@@ -62,14 +62,16 @@
   --spacing-col-xl:   80rem;
   --spacing-col-2xl:  120rem;
   --spacing-col-full: 100%;
+
+  --spacing-col-padding-base: 1.5rem;
 }
 
-@utility elevation-1 {
+/* @utility elevation-1 {
   filter: drop-shadow(0 0 1px rgb(0 0 0 / 15%)) drop-shadow(0 1px 4px rgb(0 0 0 / 5%)) drop-shadow(0 0 2px rgb(0 0 0 / 10%));
-}
+} */
 
 @utility elevation-1 {
-  box-shadow: 0 0 1px rgb(0 0 0 / 15%), 0 1px 4px rgb(0 0 0 / 5%), 0 0 2px rgb(0 0 0 / 10%);
+  box-shadow: 0 0 1px rgb(0 0 0 / 25%), 0 1px 8px rgb(0 0 0 / 5%), 0 0 4px rgb(0 0 0 / 10%);
 }
 
 :root {
@@ -408,7 +410,11 @@ details>summary::-webkit-details-marker
 }
 
 @utility mask-fade-right {
-  mask-image: linear-gradient(to right, black, black calc(100% - var(--fade-size, 1rem)), transparent 100%);
+  mask-image: linear-gradient(to right, black, black calc(100% - var(--fade-size-right, var(--fade-size, 1rem))), transparent 100%);
+}
+
+@utility mask-fade-both {
+  mask-image: linear-gradient(to right, transparent 0%, black var(--fade-size-left, var(--fade-size, 1rem)), black calc(100% - var(--fade-size-right, var(--fade-size, 1rem))), transparent 100%);
 }
 
 @utility buffer-zone {
@@ -425,6 +431,20 @@ details>summary::-webkit-details-marker
 
 @utility buffer-zone-* {
   --buffer-size: calc(--value(integer) * 1px);
+}
+
+@utility spotlight {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(150% 85% at top, white, black);
+    mix-blend-mode: multiply;
+  }
 }
 
 /* #region experimental */
