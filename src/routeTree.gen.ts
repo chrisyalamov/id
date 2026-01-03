@@ -12,7 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ShowcaseRouteImport } from './routes/showcase'
 import { Route as DebugRouteImport } from './routes/debug'
 import { Route as SkillsRouteRouteImport } from './routes/skills/route'
-import { Route as IndexRouteRouteImport } from './routes/index/route'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as SkillsIndexRouteImport } from './routes/skills/index'
 import { Route as LegalIndexRouteImport } from './routes/legal/index'
 import { Route as ArchiveIndexRouteImport } from './routes/archive/index'
@@ -48,9 +48,9 @@ const SkillsRouteRoute = SkillsRouteRouteImport.update({
   path: '/skills',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRouteRoute = IndexRouteRouteImport.update({
+const IndexRoute = IndexRouteImport.update({
   id: '/',
-  path: '',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SkillsIndexRoute = SkillsIndexRouteImport.update({
@@ -156,6 +156,7 @@ const ArchiveItemsALRNAileronRouteRoute =
   } as any)
 
 export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
   '/skills': typeof SkillsRouteRouteWithChildren
   '/debug': typeof DebugRoute
   '/showcase': typeof ShowcaseRoute
@@ -180,6 +181,7 @@ export interface FileRoutesByFullPath {
   '/archive/RCLA-studio-process-automation': typeof ArchiveItemsRCLAStudioProcessAutomationRouteRoute
 }
 export interface FileRoutesByTo {
+  '/': typeof IndexRoute
   '/debug': typeof DebugRoute
   '/showcase': typeof ShowcaseRoute
   '/library': typeof LibraryIndexRouteRoute
@@ -204,7 +206,7 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRouteRoute
+  '/': typeof IndexRoute
   '/skills': typeof SkillsRouteRouteWithChildren
   '/debug': typeof DebugRoute
   '/showcase': typeof ShowcaseRoute
@@ -231,6 +233,7 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
+    | '/'
     | '/skills'
     | '/debug'
     | '/showcase'
@@ -255,6 +258,7 @@ export interface FileRouteTypes {
     | '/archive/RCLA-studio-process-automation'
   fileRoutesByTo: FileRoutesByTo
   to:
+    | '/'
     | '/debug'
     | '/showcase'
     | '/library'
@@ -304,7 +308,7 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRouteRoute: typeof IndexRouteRoute
+  IndexRoute: typeof IndexRoute
   SkillsRouteRoute: typeof SkillsRouteRouteWithChildren
   DebugRoute: typeof DebugRoute
   ShowcaseRoute: typeof ShowcaseRoute
@@ -349,9 +353,9 @@ declare module '@tanstack/react-router' {
     }
     '/': {
       id: '/'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof IndexRouteRouteImport
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/skills/': {
@@ -511,7 +515,7 @@ const SkillsRouteRouteWithChildren = SkillsRouteRoute._addFileChildren(
 )
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRouteRoute: IndexRouteRoute,
+  IndexRoute: IndexRoute,
   SkillsRouteRoute: SkillsRouteRouteWithChildren,
   DebugRoute: DebugRoute,
   ShowcaseRoute: ShowcaseRoute,
