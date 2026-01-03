@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { MainLayout } from "@/layouts/main.tsx";
-import { Divider } from "@/components/divider.tsx";
+import { MainLayout } from "@layouts/main.tsx";
+import { Divider } from "@components/divider.tsx";
 import { FiArrowDown, FiArrowUpRight } from "react-icons/fi";
-import "../../styles.css";
-import { QuickLink } from "./-quick-link.tsx";
+import "../styles.css";
+import { QuickLink } from "@components/homepage-quick-link.tsx";
 import { DirectionalArrow } from "@/icons/directional-arrow.tsx";
-import { Showcase } from "@/components/showcase.tsx";
-import { SkillsDirectory } from "@/components/skills.tsx";
+import { Showcase } from "@components/showcase.tsx";
+import { SkillsDirectory } from "@components/skills.tsx";
 
 export const Route = createFileRoute("/")({
   component: App,

@@ -1,4 +1,4 @@
-import { DynamicMarquee } from "@/components/dynamic-marquee"
+import { DynamicMarquee } from "@components/dynamic-marquee.tsx"
 import { Link, type LinkProps } from "@tanstack/react-router"
 import { FiArrowUpRight } from "react-icons/fi"
 
