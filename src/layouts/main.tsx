@@ -1,4 +1,4 @@
-import { NavMenu } from "@components/navigation.tsx";
+import { NavBar } from "@components/navigation/index.tsx";
 import type { HTMLProps } from "react";
 import { ColumnLayout } from "./column.tsx";
 
@@ -22,7 +22,7 @@ export function MainLayout({ children, className, ...props }: LayoutProps) {
         <>
             <ColumnLayout className={cn_main} {...props}>
                 <header>
-                    <NavMenu inSidebar />
+                    <NavBar inSidebar />
                 </header>
                 <main>{children}</main>
             </ColumnLayout>

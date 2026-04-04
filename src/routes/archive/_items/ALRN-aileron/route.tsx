@@ -83,13 +83,13 @@ function RouteComponent() {
                 Aileron was an interactive learning platform for students
                 learning how to code.
               </h3>
-              <p className="text-justify hyphens-auto">
+              <p>
                 Business Technology is an undergraduate programme at Manchester
                 Metropolitan University. The programme aims to shape the
                 technology professionals of tomorrow, equipping them with
                 essential technical and business skills.
               </p>
-              <p className="text-justify hyphens-auto">
+              <p>
                 The cohort of the programme is very diverse in terms of skills
                 background:{" "}
                 <strong>
@@ -110,11 +110,11 @@ function RouteComponent() {
 
             <ArticleSectionHeading>Technology stack</ArticleSectionHeading>
             <ArticleSectionContent className={cn_prose}>
-              <p className="text-justify hyphens-auto">
+              <p>
                 Aileron was built using React (with the Next.js framework) and
                 deployed on Vercel.
               </p>
-              <p className="text-justify hyphens-auto">
+              <p>
                 Tutorials were stored in Markdown, so that programme staff could
                 easily create and manage tutorial content. A backend service
                 parsed Markdown tutorial files (and metadata in{" "}
@@ -126,7 +126,7 @@ function RouteComponent() {
                 project to be launched significantly faster.
               </p>
               {/* Maybe add in how it was parsed into a tree and the headings were used for pagination */}
-              <p className="text-justify hyphens-auto">
+              <p>
                 This process was automated using GitHub Actions which triggered
                 Incremental Static Regeneration of the updated tutorial. Using
                 this format not only helped keep costs to a zero, but also made

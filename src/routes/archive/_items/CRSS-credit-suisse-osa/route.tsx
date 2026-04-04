@@ -1,4 +1,4 @@
-import { ArticleFullSpread, ArticleRoot, ArticleSectionContent, ArticleSectionHeading, cn_prose } from '@components/article.tsx'
+import { ArticleFullSpread, ArticleRoot, ArticleSectionContent, ArticleSidebarStickyBlock, cn_prose } from '@components/article.tsx'
 import { DisclosureBlock, DisclosuresPanel } from '@components/disclosures.tsx'
 import { MRZPropertyBlock } from '@components/project-details.tsx'
 import { ProjectHeaderContainer } from '@components/project-header.tsx'
@@ -34,16 +34,16 @@ function RouteComponent() {
         <PhotoProvider>
             <ColumnLayout variant='base'>
                 <ArticleRoot mode='fixedSidebar' className='mt-px'>
-                    <ArticleSectionHeading className='border-t-8 border-blue-500 pt-8'>
+                    <ArticleSidebarStickyBlock className='border-t-8 border-blue-500 pt-8'>
                         <h3 className='mb-10 text-xl font-semibold leading-tight'>
                             Credit Suisse Group AG is a Swiss financial services firm and global investment bank.
                         </h3>
-                        <div className={cn_prose}>
+                        <div>
                             <p>
                                 Their International Wealth Management (IWM) division has over 160 years of financial expertise and by embracing technological innovation, they have become a leader in their industry.
                             </p>
                         </div>
-                    </ArticleSectionHeading>
+                    </ArticleSidebarStickyBlock>
                     <ArticleSectionContent className={`pt-8 border-t-8 border-transparent ${cn_prose}`}>
                         <h3>Consultation</h3>
                         <p>

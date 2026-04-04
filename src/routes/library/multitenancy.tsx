@@ -1,8 +1,10 @@
-import { Footer } from '@/components/footer'
-import { SingleColumn } from '@/layouts/single-column'
+import { Footer } from '@components/footer.tsx'
+import { SingleColumn } from '@layouts/single-column.tsx'
 import { createFileRoute } from '@tanstack/react-router'
-import { formatDate } from './-format-date'
-import { ArticleRoot, ArticleSectionContent, ArticleSidebarStickyBlock, cn_prose } from '@/components/article'
+import { formatDate } from './-format-date.ts'
+import { ArticleRoot, ArticleSectionContent, ArticleSidebarStickyBlock, cn_prose_large } from '@/components/article.tsx'
+import { Codeblock } from "@components/codeblock.tsx";
+import { BlockDivider } from "@components/divider.tsx";
 
 export const Route = createFileRoute('/library/multitenancy')({
     component: RouteComponent,
@@ -10,23 +12,22 @@ export const Route = createFileRoute('/library/multitenancy')({
 
 function RouteComponent() {
     return <>
-        <SingleColumn columnOptions={{ variant: 'base' }} className='@container/article'>
-            <div className='min-h-24 lg:min-h-44 flex items-end border-b border-neutral-500/20 py-3'>
+        <SingleColumn columnOptions={{ variant: 'lg', centre: true }} className='@container/article'>
+            <div className='min-h-24 lg:min-h-44 flex items-end border-b border-neutral-500/20 py-3 font-mode-display'>
                 <h1 className='text-2xl'>
                     <span className='font-medium opacity-50'>{formatDate(new Date("2025-08-18"))} </span>
                     <span className='font-semibold'>Approaches to Multitenancy</span>
                 </h1>
             </div>
-            <ArticleRoot className='py-3'>
+            <ArticleRoot className='py-5'>
                 <ArticleSidebarStickyBlock className='font-medium text-balance'>
                     <p>Notes on creating multi-tenant architectures and systems</p>
                     <p className='opacity-50 my-4 mb-12 underline decoration-dotted underline-offset-2'>Christian Yalamov</p>
                 </ArticleSidebarStickyBlock>
-                <ArticleSectionContent className={cn_prose}>
+                <ArticleSectionContent className={cn_prose_large}>
                     <p>
-                        Software-as-a-Service (SaaS) has emerged as a popular distribution model for software.</p>
-                    <p>
-                        SaaS software is deployed and hosted by the vendor for use by its customers— we tend to refer to these as 'tenants.' A tenant can represent something like a client or workspace. Each tenant has its own data</p>
+                        Software-as-a-Service (SaaS) has emerged as a popular distribution model for software.
+                        SaaS is deployed and hosted by the vendor for use by its customers— we tend to refer to these as 'tenants.' A tenant can represent something like a client or workspace. Each tenant has its own data.</p>
                     <p>
                         Storing everyone's data together, but making it seem as if your application runs independently for every tenant can be challenging. This is achieved by <strong>logically separating</strong> tenants' data, and making sure they can only see and manipulate the data that relates to them.</p>
                     <p>
@@ -36,7 +37,7 @@ function RouteComponent() {
                         Brief note
                     </h2>
                     <p>
-                    <strong>This is not a tutorial</strong>. There are some code examples in this post, but they are purely for demonstration purposes. Designing a multi-tenant architecture is a big feat that involves various architectural considerations (e.g. sharding, replication, load balancing, etc.). This post is just a summary of some of the patterns or approaches you are likely to come across.
+                        <strong>This is not a tutorial</strong>. There are some code examples in this post, but they are purely for demonstration purposes. Designing a multi-tenant architecture is a big feat that involves various architectural considerations (e.g. sharding, replication, load balancing, etc.). This post is just a summary of some of the patterns or approaches you are likely to come across.
                     </p>
                     <p>
                         If you are implementing a multi-tenant architecture, you will have to worry about a lot more than just your database. A multi-tenant model will affect your whole infrastructure and you will need to think about various architectural considerations (e.g. load balancing, sharding, replication) and challenges (e.g. noisy neighbour problem).
@@ -53,23 +54,30 @@ function RouteComponent() {
                     <p>
                         <strong>Example 1:</strong> Adding the check manually, using a parametrised query.
                     </p>
-                    <pre>
-                        <code>SELECT * FROM orders AS o WHERE o.tenant_id = $tenantID</code>
-                    </pre>
+                    <Codeblock
+                        code={`SELECT * FROM orders AS o WHERE o.tenant_id = $tenantID`}
+                        language="sql"
+                        id="example1"
+                        route={Route}
+                    />
                     <p>
                         <strong>Example 2:</strong> Using DrizzleORM (ORM for Javascript), manually add a filter
                     </p>
-                    <pre>
-                        <code>
-                            const results = db.select().from(orders).where(eq(orders.tenant, currentTenant))
-                        </code>
-                    </pre>
+                    <Codeblock
+                        code={`const results = db.select().from(orders).where(eq(orders.tenant, currentTenant))`}
+                        language="ts"
+                        id="example2"
+                        route={Route}
+                    />
                     <p>
                         <strong>Example 3:</strong> Using DrizzleORM (ORM for Javascript), create a higher-order function which enhances queries by adding a tenant filter
                     </p>
-                    <pre>
-                        <code>{`
-function withTenantFilter(query, tenant, table) {
+                    <Codeblock
+                        route={Route}
+                        language="ts"
+                        id="example3"
+                        code={`
+                        function withTenantFilter(query, tenant, table) {
 	// the tenant can either be passed to this function,
 	// or dynamically extracted, e.g. based on data
 	// in an HTTP request
@@ -80,18 +88,18 @@ const resultsWithTenantFilter = await withTenantFilter(
     db.select().from(orders),
     currentTenant,
     orders
-)
-                        `.trim()}
-                        </code>
-                    </pre>
+)`.trim()
+                        }
+                    />
                     <blockquote>
                         Interesting alternative approach proposed by @<a href="https://github.com/rsslldnphy">rsslldnphy</a>: create a function which returns a table with an applied filter:
-                        <p>
-                            <a href="https://github.com/drizzle-team/drizzle-orm/discussions/1539#discussioncomment-7639604">https://github.com/drizzle-team/drizzle-orm/discussions/1539#discussioncomment-7639604</a>
-                        </p>
-                        <pre>
-                            <code>{`
-// Function which produces an already filtered table
+
+                        <Codeblock
+                            route={Route}
+                            id="alternative-approach"
+                            language="ts"
+                            code={`
+                                // Function which produces an already filtered table
 export const person = (tenant: {id: string }) =>
     db
         .select()
@@ -106,14 +114,22 @@ const people = await db
     .from(person(tenant))
     .where(like(person(tenant).name, "Croenberg"))
     );
-    `.trim()}
-                            </code>
-                        </pre>
+                                `.trim()}
+                            containerProps={{
+                                className: "-mx-(--housing-padding-x) rounded-none! px-(--housing-padding-x)"
+                            }}
+                        />
+                        <p>
+                            See <a href="https://github.com/drizzle-team/drizzle-orm/discussions/1539#discussioncomment-7639604">this discussion on GitHub</a> for context.
+                        </p>
                     </blockquote>
                     <p>
                         <strong>Example 4:</strong> Using Entity Framework Global Filters (.NET)</p>
-                    <pre>
-                        <code>{`
+                    <Codeblock
+                        route={Route}
+                        id="example4"
+                        language="cs"
+                        code={`
 public class OrdersDbContext : DbContext
 {
     private readonly string _tenantId;
@@ -133,10 +149,8 @@ public class OrdersDbContext : DbContext
         modelBuilder.Entity & lt;Order&gt;().HasQueryFilter(o =&gt; o.TenantId == _tenantId);
     }
 }
-        `.trim()}
-
-                        </code>
-                    </pre>
+                                `.trim()}
+                    />
                     <h2>
                         Approach II: Row-Level Security
                     </h2>
@@ -149,26 +163,30 @@ public class OrdersDbContext : DbContext
                     <p>
                         We can configure such a policy in Postgres like so:
                     </p>
-                    <pre>
-                        <code>{`        
+                    <Codeblock
+                        route={Route}
+                        id="pg-rls-1"
+                        language="sql"
+                        code={`
 CREATE POLICY orders_policy
 ON orders
 USING (tenant_id::TEXT = current_setting("context.tenant"));
                                 `.trim()}
-                        </code>
-                    </pre>
+                    />
                     <p>
                         Here, we’re only allowing rows to be visible if their<code>tenant_id</code> matches the <code>context.tenant</code> configuration parameter.
                     </p>
                     <p>
                         You may wonder how we set this parameter value in the first place. In Postgres, this is done either with <code>set_config(key, value, is_local)</code> or the SQL syntax <code>SET [LOCAL] key to value</code>. A setting being local means that it is only scoped to the current transaction—&nbsp;after the transaction ends, the setting no longer exists. We can do this at the start of the transaction:
                     </p>
-                    <pre>
-                        <code>{`
+                    <Codeblock
+                        route={Route}
+                        id="pg-rls-2"
+                        language="sql"
+                        code={`
 SET LOCAL "context.tenant" TO 'ACME Corp'
-                                    `.trim()}
-                        </code>
-                    </pre>
+                                `.trim()}
+                    />
                     <p>
                         and then have the value available until the end.
                     </p>
@@ -185,7 +203,7 @@ SET LOCAL "context.tenant" TO 'ACME Corp'
                         Another reason is to do with your infrastructure. Application-level filtering is done on the server, whose job it is to query your database and send a response to the client. But what if you didn’t have a server? With platforms like Supabase, you can get away with having most of your application logic purely on your database— and with Postgres, that’s actually quite practical! Extensions like postgREST, pgJWT (and more) make it easy to add enough features to your DB that you no longer need a backend application server.
                     </p>
                     <p>
-                        However, when you don’t have a server where you can enforce tenants’ data separation, and you let your users directly access your database, Row-Level Security can still help you achieve isolated multi-tenancy.
+                        However, when you don’t have a server where you can enforce tenants’ data separation, and you let your users directly access your database, Row-Level Security can still help you achieve isolated multi-tenancy, by moving the logic over to the database.
                     </p>
                     <h2>
                         Approach III: Infrastructure replication
@@ -209,17 +227,12 @@ SET LOCAL "context.tenant" TO 'ACME Corp'
                         Which components you replicate will again depend on your unique case. For instance, you may only need to create separate databases, while keeping application servers shared. Or, you may wish to have dedicated application servers for compliance reasons, but retain some services (like authentication) shared between everyone.
                     </p>
                     <p>
-                        Separating infrastructure for tenants is also not trivial to implement, and it makes many aspects of your system design more complex.
-                    </p>
-                    <p>
-                        Managing database schemas can become more complicated, as you are no longer working with one database for the whole system, but one database <strong>per tenant</strong>. Database migrations may succeed for some tenants (but not all), putting you in a position where the data model is inconsistent across tenants (the kind of situation that requires manual intervention).
+                        Separating infrastructure for tenants is also not trivial to implement, and it makes many aspects of your system design more complex. Managing database schemas can become more complicated, as you are no longer working with one database for the whole system, but one database <strong>per tenant</strong>. Database migrations may succeed for some tenants (but not all), putting you in a position where the data model is inconsistent across tenants (the kind of situation that requires manual intervention).
                     </p>
                     <p>
                         If you are considering this deployment pattern, it’s also important to note it carries much higher costs per-tenant, than hosting everyone on shared infrastructure.
                     </p>
-                    <p className="text-center my-5 tracking-widest border-y border-neutral-500/30 py-4">
-                    · · ·
-                    </p>
+                    <BlockDivider />
                     <p>
                         When offering hosted software to different customers, you will have to make a lot of not-straightforward decisions about the design of your systems. In this article, three approaches are described for achieving multi-tenancy are described. None of them are likely to be a perfect fit for your use case. Your solution will probably include a mixture of different patterns and infrastructure components.
                     </p>

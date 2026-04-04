@@ -37,7 +37,9 @@ export const Header = ({ locator, ...props }: HeaderProps) => {
         <label htmlFor="nav-open" className={cn_toggle} style={{
             viewTransitionName: "nav-toggle"
         }}>
-            <TwoLines />
+
+                <TwoLines />
+
         </label>
     </div>
 }

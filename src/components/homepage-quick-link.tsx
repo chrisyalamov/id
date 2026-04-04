@@ -13,6 +13,7 @@ export const QuickLink = ({ description, label, icon, primary = false, ...props 
   const cn_linkbase = `
     grid grid-cols-[1fr_auto] w-full gap-4 items-center 
     group 
+    font-mode-display
     active:opacity-30 
     pointer-fine:active:animate-[come-in,blink_0.1s_backwards]
     my-0.5

@@ -15,7 +15,7 @@ export const SkillLink = ({ name, className, ...props }: SkillLinkProps) => {
     @container/skill rounded-md
     [:has(details[open])_&:not([open])]:opacity-60
     open:bg-neutral-400/10
-    my-3 overflow-hidden
+    my-4 overflow-hidden
   `.trim()
 
   const cn_skillLineSummary = `
@@ -47,7 +47,7 @@ export const SkillLink = ({ name, className, ...props }: SkillLinkProps) => {
 
     <div className={cn_skillLineSummary}>
       <div className={cn_badge} />
-      <div className="text-clip shrink text-xs break-all max-h-[1lh]">
+      <div className="text-clip shrink text-sm break-all max-h-[1lh]">
         <span className={`${isFocused ? "text-(--skill-color)" : "group-hover:text-(--skill-color) group-active:text-(--skill-color)"} shrink-0 group-hover:underline decoration-dotted underline-offset-2`}>
           {name}
         </span>
@@ -67,11 +67,11 @@ export const SkillsDirectory = <>
   <SkillLink name='Enterprise' className="[--skill-color:var(--color-purple-500)]" to="/skills/enterprise" />
 </>
 
-export const SkillBank = ({ children }: { children: React.ReactNode }) => <div className='grid grid-cols-[repeat(auto-fit,minmax(11rem,1fr))] gap-1.5 gap-x-3 items-start group'>
+export const SkillBank = ({ children }: { children: React.ReactNode }) => <div className='flex flex-wrap gap-x-2 gap-y-1.5 border border-dashed wrap-normal border-neutral-400/40 py-3 px-4 rounded-md'>
   {children}
 </div>
 
-export const SkillBadge = ({ children } : { children: React.ReactNode }) => <div className="leading-none my-0.5 text-xs text-neutral-500 ml-[1.5ch]">
+export const SkillBadge = ({ children } : { children: React.ReactNode }) => <div className="leading-none text-nowrap my-0.5 text-xs text-neutral-500 ml-[1.5ch]">
   <div className="size-[1ch] mr-[0.5ch] bg-neutral-400/25 rounded-xs inline-block -ml-[1.5ch]" />
   {children}
 </div>

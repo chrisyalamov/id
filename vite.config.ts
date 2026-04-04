@@ -1,29 +1,31 @@
 import { defineConfig } from 'vite'
 import viteReact from '@vitejs/plugin-react'
-import tsConfigPaths from 'vite-tsconfig-paths'
 import tailwindcss from '@tailwindcss/vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
-import { cloudflare } from '@cloudflare/vite-plugin'
-import deno from "npm:@deno/vite-plugin"
+import { nitro } from "nitro/vite";
+// import deno from "@deno/vite-plugin"
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    host: true
+  },
+  resolve: {
+    tsconfigPaths: true
+  },
   plugins: [
-    deno(),
-    tsConfigPaths(),
-    tanstackStart(),
-    cloudflare({ viteEnvironment: { name: 'ssr' } }),
-    // react's vite plugin must come after start's vite plugin
-    viteReact(),
     tailwindcss(),
+    nitro({
+      preset: "node-server"
+    }),
+    tanstackStart({
+      prerender: {
+        enabled: true
+      }
+    }),
+    // deno(),
+    // cloudflare({ viteEnvironment: { name: 'ssr' } }),
+    viteReact(),
   ],
-  // test: {
-  //   globals: true,
-  //   environment: 'jsdom',
-  // },
-  // resolve: {
-  //   alias: {
-  //     '@': resolve(__dirname, './src'),
-  //   },
-  // },
 })
+console.log("HELLOOO")

@@ -17,8 +17,6 @@ import { Reel } from "@components/reel.tsx";
 
 import cais1 from "@/media/showcase/cais1.webp";
 import web4 from "@/media/showcase/web4.webp";
-import web1 from "@/media/showcase/web1.webp";
-import web2 from "@/media/showcase/web2.webp";
 import web3 from "@/media/showcase/web3.webp";
 import bit1 from "@/media/showcase/bit1.webp";
 import bit2 from "@/media/showcase/bit2.webp";
@@ -55,32 +53,28 @@ const CreativeReel = (
 
 const UIReel = (
   <div className="bg-neutral-400/10 dark:bg-neutral-500/5">
-      <Reel>
-          <img
-            src={web1}
-            className="object-contain cursor-pointer "
-          />
-        <img
-          src={web4}
-          className="object-contain cursor-pointer "
-        />
-        <img
-          src={web3}
-          className="object-contain cursor-pointer "
-        />
-          <img
-            src={cais1}
-            className="object-contain cursor-pointer "
-          />
-          <img
-            src={carder2}
-            className="object-contain cursor-pointer "
-          />
-        <img
-          src={carder1}
-          className="object-contain cursor-pointer "
-        />
-      </Reel>
+    <Reel>
+      <img
+        src={cais1}
+        className="object-contain cursor-pointer "
+      />
+      <img
+        src={web3}
+        className="object-contain cursor-pointer "
+      />
+      <img
+        src={carder2}
+        className="object-contain cursor-pointer "
+      />
+      <img
+        src={carder1}
+        className="object-contain cursor-pointer "
+      />
+      <img
+        src={web4}
+        className="object-contain cursor-pointer "
+      />
+    </Reel>
   </div>
 );
 
@@ -138,11 +132,10 @@ export const ShotContainer = (
       <div
         className={`
             ${cn_shotContainerBase} ${cn_shotContainer}
-            ${
-          childrenCount > 1
+            ${childrenCount > 1
             ? cn_shotContainerBaseScrollable
             : cn_shotContainerBaseSingle
-        }
+          }
             ${childrenCount > 1 ? "justify-start" : "justify-center"}
             ${square ? "aspect-square" : ""}
         `.trim()}
@@ -156,11 +149,12 @@ export const ShotContainer = (
 type SlideProps = {
   verticalOrder: "descriptionFirst" | "contentFirst";
   horizontalOrder: "descriptionFirst" | "contentFirst";
+  justify?: "left" | "centre";
   description: React.ReactNode;
   content: React.ReactNode;
 };
 
-export const Slide = (props: SlideProps) => {
+export const Slide = ({ justify = "left", ...props }: SlideProps) => {
   const cn_containerVertical = props.verticalOrder === "descriptionFirst"
     ? "flex-col"
     : "flex-col-reverse";
@@ -168,9 +162,11 @@ export const Slide = (props: SlideProps) => {
     ? "@4xl/showcase:flex-row"
     : "@4xl/showcase:flex-row-reverse";
   const cn_slideContainerJustification =
-    props.horizontalOrder === "descriptionFirst"
-      ? "justify-start"
-      : "justify-end";
+    justify === "centre"
+      ? "justify-center"
+      : props.horizontalOrder === "descriptionFirst"
+        ? "justify-start"
+        : "justify-end";
   const cn_slideContainer =
     `${cn_containerVertical} ${cn_containerHorizontal} ${cn_slideContainerJustification} @max-6xl:max-w-col-base flex items-stretch @4xl/showcase:items-start gap-6 gap-x-10 my-8 px-6`;
   const cn_descriptionOuter =
@@ -252,7 +248,7 @@ const RiskManagement = (
     }
     description={
       <>
-        <h2 className="font-semibold text-lg text-balance">
+        <h2 className="font-semibold text-lg text-balance leading-tight">
           Streamlining risk management
         </h2>
         <p className="my-4 leading-snug hyphens-auto @lg/showcase:text-base @4xl/showcase:text-sm">
@@ -269,6 +265,7 @@ const RiskManagement = (
     }
     horizontalOrder="contentFirst"
     verticalOrder="descriptionFirst"
+    justify="centre"
   />
 );
 
@@ -331,7 +328,7 @@ const DataAnalysis = (
     }
     description={
       <>
-        <h2 className="font-semibold text-lg text-balance">
+        <h2 className="font-semibold text-lg text-balance leading-tight">
           Unraveling the story behind the data
         </h2>
         <p className="my-4 leading-snug hyphens-auto @lg/showcase:text-base @4xl/showcase:text-sm">
@@ -342,6 +339,7 @@ const DataAnalysis = (
     }
     horizontalOrder="contentFirst"
     verticalOrder="descriptionFirst"
+    justify="centre"
   />
 );
 

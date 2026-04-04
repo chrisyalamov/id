@@ -6,12 +6,12 @@ import { Footer } from '@components/footer.tsx';
 import { ViewToggle } from './-view-toggle.tsx';
 
 const searchSchema = z.object({
-  detailed: z.boolean().optional().default(true)
+  detailed: z.coerce.boolean().optional().default(true)
 })
 
 export const Route = createFileRoute('/archive/')({
   component: RouteComponent,
-  validateSearch: (search) => searchSchema.parse(search),
+  validateSearch: searchSchema
 })
 
 function RouteComponent() {
@@ -19,8 +19,8 @@ function RouteComponent() {
 
   return <>
     <SingleColumn columnOptions={{ variant: 'base' }} className='@container/main'>
-      <div className='min-h-24 lg:min-h-44 flex items-end border-b border-neutral-500/20 py-3'>
-        <h1 className='text-2xl font-semibold'>Archive</h1>
+      <div className='min-h-24 lg:min-h-44 flex items-end border-b border-neutral-500/20 py-3 font-mode-display'>
+        <h1 className='text-2xl font-bold'>Archive</h1>
       </div>
 
       <div className='@2xl/main:flex flex-row gap-x-12  @max-2xl/main:py-3 items-start'>
@@ -30,7 +30,7 @@ function RouteComponent() {
             <ViewToggle />
           </div>
         </div>
-        <div className=' dark:border-neutral-400/15 rounded-[calc(var(--radius-sm)+1px)] overflow-hidden @container/archive-index basis-3/4 grow'>
+        <div className=' dark:border-neutral-400/15 rounded-[calc(var(--radius-sm)+1px)] overflow-hidden @container/archive-index basis-3/4 grow text-sm'>
           <div className='grid grid-cols-[auto_auto_auto_1fr] @lg/archive-index:grid-cols-[auto_auto_auto_1fr_auto] pt-1'>
             <ProjectBlock
               title='Carder Event Platform'

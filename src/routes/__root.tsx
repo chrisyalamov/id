@@ -8,7 +8,7 @@ import {
 } from '@tanstack/react-router'
 import css_main from "@/styles.css?url"
 import 'react-photo-view/dist/react-photo-view.css';
-import { Badge } from '@/components/badge';
+import { Badge } from '@/components/badge.tsx';
 import { FiArrowDownLeft } from 'react-icons/fi';
 import favicon from "@/media/favicon.png?url"
 

@@ -42,15 +42,15 @@ const Introduction = <>
         </h3>
         <p>
             I built Carder as part of a university project. The assignment had two parts: to come up with an idea for a digital business, and analyse its viability; and to develop (part of) the digital product or platform.
-            My primary focus was on developing the <strong>licensing and billing</strong> system, and underlying services such as <strong>events and attendee management</strong>, the <strong>multi-tenant architecture of the platform</strong>, <strong>authentication</strong>, and <strong>integrations with a payments processor</strong>.
+            My primary focus was on developing the licensing and billing system, and underlying services such as events and attendee management, the multi-tenant architecture of the platform, authentication, and integrations with a payments processor.
         </p>
         <p>
             Below, I talk about:
         </p>
         <div className='pl-4'>
-            my analysis of the <a href="#proposition">business proposition</a><FiArrowDownLeft className='inline h-[1lh]' />;<br />
-            the process of <a href="#prototyping">ideation and prototyping</a><FiArrowDownLeft className='inline h-[1lh]' />; <br />
-            and the <a href="#technical">technical implementation</a><FiArrowDownLeft className='inline h-[1lh]' />.
+            my analysis of the <a href="#proposition">business proposition</a><FiArrowDownLeft className='inline h-lh' />;<br />
+            the process of <a href="#prototyping">ideation and prototyping</a><FiArrowDownLeft className='inline h-lh' />; <br />
+            and the <a href="#technical">technical implementation</a><FiArrowDownLeft className='inline h-lh' />.
         </div>
     </ArticleSectionContent>
 </>
@@ -138,11 +138,11 @@ const Technical = <>
         </p>
         <p>
             There were two aspects of development that were challenging:
-            <ul>
-                <li>ensuring the system is secure against CSRF attacks</li>
-                <li>representing complex relationships (due to polymorphism in the business logic)</li>
-            </ul>
         </p>
+        <ul>
+            <li>ensuring the system is secure against CSRF attacks</li>
+            <li>representing complex relationships (due to polymorphism in the business logic)</li>
+        </ul>
         <h3>CSRF Prevention</h3>
         <p>
             Since some operations in the system could trigger high-stakes actions (e.g. initiating a payment), it was important to ensure that these operations could be linked to user intent. Cross-Site Request Forgery is an attack vector where a malicious 3rd party tricks a user into a performing an action (e.g. by making them make an unintended authetnicated request to an endpoint).

@@ -22,6 +22,8 @@ import { Route as SkillsEnterpriseRouteImport } from './routes/skills/enterprise
 import { Route as SkillsDesignRouteImport } from './routes/skills/design'
 import { Route as SkillsDataRouteImport } from './routes/skills/data'
 import { Route as ProfileAcademicRouteImport } from './routes/profile/academic'
+import { Route as LibraryUntrustedCodeExecRouteImport } from './routes/library/untrusted-code-exec'
+import { Route as LibrarySchemaManagementRouteImport } from './routes/library/schema-management'
 import { Route as LibraryMultitenancyRouteImport } from './routes/library/multitenancy'
 import { Route as ExperimentalBook2RouteImport } from './routes/experimental/book2'
 import { Route as ExperimentalBook1RouteImport } from './routes/experimental/book1'
@@ -98,6 +100,17 @@ const ProfileAcademicRoute = ProfileAcademicRouteImport.update({
   path: '/profile/academic',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LibraryUntrustedCodeExecRoute =
+  LibraryUntrustedCodeExecRouteImport.update({
+    id: '/library/untrusted-code-exec',
+    path: '/library/untrusted-code-exec',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LibrarySchemaManagementRoute = LibrarySchemaManagementRouteImport.update({
+  id: '/library/schema-management',
+  path: '/library/schema-management',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LibraryMultitenancyRoute = LibraryMultitenancyRouteImport.update({
   id: '/library/multitenancy',
   path: '/library/multitenancy',
@@ -160,18 +173,20 @@ export interface FileRoutesByFullPath {
   '/skills': typeof SkillsRouteRouteWithChildren
   '/debug': typeof DebugRoute
   '/showcase': typeof ShowcaseRoute
-  '/library': typeof LibraryIndexRouteRoute
+  '/library/': typeof LibraryIndexRouteRoute
   '/experimental/book1': typeof ExperimentalBook1Route
   '/experimental/book2': typeof ExperimentalBook2Route
   '/library/multitenancy': typeof LibraryMultitenancyRoute
+  '/library/schema-management': typeof LibrarySchemaManagementRoute
+  '/library/untrusted-code-exec': typeof LibraryUntrustedCodeExecRoute
   '/profile/academic': typeof ProfileAcademicRoute
   '/skills/data': typeof SkillsDataRoute
   '/skills/design': typeof SkillsDesignRoute
   '/skills/enterprise': typeof SkillsEnterpriseRoute
   '/skills/technology': typeof SkillsTechnologyRoute
-  '/about': typeof AboutIndexRoute
-  '/archive': typeof ArchiveIndexRoute
-  '/legal': typeof LegalIndexRoute
+  '/about/': typeof AboutIndexRoute
+  '/archive/': typeof ArchiveIndexRoute
+  '/legal/': typeof LegalIndexRoute
   '/skills/': typeof SkillsIndexRoute
   '/archive/ALRN-aileron': typeof ArchiveItemsALRNAileronRouteRoute
   '/archive/CEPL-carder': typeof ArchiveItemsCEPLCarderRouteRoute
@@ -188,6 +203,8 @@ export interface FileRoutesByTo {
   '/experimental/book1': typeof ExperimentalBook1Route
   '/experimental/book2': typeof ExperimentalBook2Route
   '/library/multitenancy': typeof LibraryMultitenancyRoute
+  '/library/schema-management': typeof LibrarySchemaManagementRoute
+  '/library/untrusted-code-exec': typeof LibraryUntrustedCodeExecRoute
   '/profile/academic': typeof ProfileAcademicRoute
   '/skills/data': typeof SkillsDataRoute
   '/skills/design': typeof SkillsDesignRoute
@@ -214,6 +231,8 @@ export interface FileRoutesById {
   '/experimental/book1': typeof ExperimentalBook1Route
   '/experimental/book2': typeof ExperimentalBook2Route
   '/library/multitenancy': typeof LibraryMultitenancyRoute
+  '/library/schema-management': typeof LibrarySchemaManagementRoute
+  '/library/untrusted-code-exec': typeof LibraryUntrustedCodeExecRoute
   '/profile/academic': typeof ProfileAcademicRoute
   '/skills/data': typeof SkillsDataRoute
   '/skills/design': typeof SkillsDesignRoute
@@ -237,18 +256,20 @@ export interface FileRouteTypes {
     | '/skills'
     | '/debug'
     | '/showcase'
-    | '/library'
+    | '/library/'
     | '/experimental/book1'
     | '/experimental/book2'
     | '/library/multitenancy'
+    | '/library/schema-management'
+    | '/library/untrusted-code-exec'
     | '/profile/academic'
     | '/skills/data'
     | '/skills/design'
     | '/skills/enterprise'
     | '/skills/technology'
-    | '/about'
-    | '/archive'
-    | '/legal'
+    | '/about/'
+    | '/archive/'
+    | '/legal/'
     | '/skills/'
     | '/archive/ALRN-aileron'
     | '/archive/CEPL-carder'
@@ -265,6 +286,8 @@ export interface FileRouteTypes {
     | '/experimental/book1'
     | '/experimental/book2'
     | '/library/multitenancy'
+    | '/library/schema-management'
+    | '/library/untrusted-code-exec'
     | '/profile/academic'
     | '/skills/data'
     | '/skills/design'
@@ -290,6 +313,8 @@ export interface FileRouteTypes {
     | '/experimental/book1'
     | '/experimental/book2'
     | '/library/multitenancy'
+    | '/library/schema-management'
+    | '/library/untrusted-code-exec'
     | '/profile/academic'
     | '/skills/data'
     | '/skills/design'
@@ -316,6 +341,8 @@ export interface RootRouteChildren {
   ExperimentalBook1Route: typeof ExperimentalBook1Route
   ExperimentalBook2Route: typeof ExperimentalBook2Route
   LibraryMultitenancyRoute: typeof LibraryMultitenancyRoute
+  LibrarySchemaManagementRoute: typeof LibrarySchemaManagementRoute
+  LibraryUntrustedCodeExecRoute: typeof LibraryUntrustedCodeExecRoute
   ProfileAcademicRoute: typeof ProfileAcademicRoute
   AboutIndexRoute: typeof AboutIndexRoute
   ArchiveIndexRoute: typeof ArchiveIndexRoute
@@ -368,21 +395,21 @@ declare module '@tanstack/react-router' {
     '/legal/': {
       id: '/legal/'
       path: '/legal'
-      fullPath: '/legal'
+      fullPath: '/legal/'
       preLoaderRoute: typeof LegalIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/archive/': {
       id: '/archive/'
       path: '/archive'
-      fullPath: '/archive'
+      fullPath: '/archive/'
       preLoaderRoute: typeof ArchiveIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about/': {
       id: '/about/'
       path: '/about'
-      fullPath: '/about'
+      fullPath: '/about/'
       preLoaderRoute: typeof AboutIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -421,6 +448,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileAcademicRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/library/untrusted-code-exec': {
+      id: '/library/untrusted-code-exec'
+      path: '/library/untrusted-code-exec'
+      fullPath: '/library/untrusted-code-exec'
+      preLoaderRoute: typeof LibraryUntrustedCodeExecRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/library/schema-management': {
+      id: '/library/schema-management'
+      path: '/library/schema-management'
+      fullPath: '/library/schema-management'
+      preLoaderRoute: typeof LibrarySchemaManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/library/multitenancy': {
       id: '/library/multitenancy'
       path: '/library/multitenancy'
@@ -445,7 +486,7 @@ declare module '@tanstack/react-router' {
     '/library/': {
       id: '/library/'
       path: '/library'
-      fullPath: '/library'
+      fullPath: '/library/'
       preLoaderRoute: typeof LibraryIndexRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -523,6 +564,8 @@ const rootRouteChildren: RootRouteChildren = {
   ExperimentalBook1Route: ExperimentalBook1Route,
   ExperimentalBook2Route: ExperimentalBook2Route,
   LibraryMultitenancyRoute: LibraryMultitenancyRoute,
+  LibrarySchemaManagementRoute: LibrarySchemaManagementRoute,
+  LibraryUntrustedCodeExecRoute: LibraryUntrustedCodeExecRoute,
   ProfileAcademicRoute: ProfileAcademicRoute,
   AboutIndexRoute: AboutIndexRoute,
   ArchiveIndexRoute: ArchiveIndexRoute,

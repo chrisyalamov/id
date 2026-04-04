@@ -5,6 +5,7 @@ import { HiMiniAcademicCap } from "react-icons/hi2"
 import { PropLine } from '../profile/academic.tsx'
 import { FiArrowUpRight, FiChevronRight } from 'react-icons/fi'
 import { Footer } from '@components/footer.tsx'
+import { ArticleRoot, ArticleSectionContent, ArticleSectionHeading, cn_prose } from "@components/article.tsx";
 
 export const Route = createFileRoute('/about/')({
   component: RouteComponent,
@@ -20,33 +21,31 @@ const cn_badge = `
   `.trim()
 
 const Education = <>
-  <div className='relative pb-10'>
-    <h2 className='sticky top-4 font-semibold'>Education</h2>
-  </div>
-  <div className='@container/content text-justify hyphens-auto'>
-    <div className='grid grid-cols-[repeat(5,auto)] max-w-full overflow-x-auto [&_*]:text-nowrap snap-x mask-fade-right [--fade-size:2.5rem]'>
-      <div className='grid col-span-full grid-cols-subgrid pb-3 border-b border-neutral-400/40 [&>*]:snap-start text-neutral-400'>
+  <ArticleSectionHeading>Education</ArticleSectionHeading>
+  <ArticleSectionContent>
+    <div className='grid grid-cols-[repeat(5,auto)] max-w-full overflow-x-auto **:text-nowrap snap-x mask-fade-right [--fade-size:2.5rem] text-sm'>
+      <div className='grid col-span-full grid-cols-subgrid pb-3 border-b border-neutral-400/40 *:snap-start text-neutral-400'>
         <div className='border-r border-neutral-400/25 leading-3 pr-3'>Year</div>
         <div className='border-r border-neutral-400/25 leading-3 px-3'>Qualification</div>
         <div className='border-r border-neutral-400/25 leading-3 px-3'>Discipline</div>
         <div className='border-r border-neutral-400/25 leading-3 px-3'>Issuing body</div>
         <div className='leading-3 pl-3 pr-10'>Result</div>
       </div>
-      <div className='grid col-span-full grid-cols-subgrid [&>*]:py-2.5 border-b border-neutral-400/15'>
+      <div className='grid col-span-full grid-cols-subgrid *:py-2.5 border-b border-neutral-400/15'>
         <div className='border-r border-neutral-400/15 leading-3 pr-3'>2025</div>
         <div className='border-r border-neutral-400/15 leading-3 px-3'>BSc (Hons.)</div>
         <div className='border-r border-neutral-400/15 leading-3 px-3'>Business Technology</div>
         <div className='border-r border-neutral-400/15 leading-3 px-3'>Manchester Metropolitan University</div>
         <div className='leading-3 pl-3 pr-10'>First-Class Honours</div>
       </div>
-      <div className='grid col-span-full grid-cols-subgrid [&>*]:py-2.5 border-b border-neutral-400/15'>
+      <div className='grid col-span-full grid-cols-subgrid *:py-2.5 border-b border-neutral-400/15'>
         <div className='border-r border-neutral-400/15 leading-3 pr-3'>2021</div>
         <div className='border-r border-neutral-400/15 leading-3 px-3'>CertHE</div>
         <div className='border-r border-neutral-400/15 leading-3 px-3'>Business and Management</div>
         <div className='border-r border-neutral-400/15 leading-3 px-3'>University of the West of England, Bristol</div>
         <div className='leading-3 pl-3 pr-10'>Distinction</div>
       </div>
-      <div className='grid col-span-full grid-cols-subgrid [&>*]:py-2.5 border-b border-neutral-400/15'>
+      <div className='grid col-span-full grid-cols-subgrid *:py-2.5 border-b border-neutral-400/15'>
         <div className='border-r border-neutral-400/15 leading-3 pr-3'>2020</div>
         <div className='border-r border-neutral-400/15 leading-3 px-3'>A-Level</div>
         <div className='border-r border-neutral-400/15 leading-3 px-3'>Computer Science, Mathematics, Business</div>
@@ -55,7 +54,7 @@ const Education = <>
       </div>
     </div>
 
-    <div className='flex items-center justify-end rounded-b gap-2 flex-wrap -mt-px text-2xs uppercase font-semibold text-neutral-400 py-1'>
+    <div className='flex items-center justify-end rounded-b gap-1 flex-wrap -mt-px text-2xs uppercase font-semibold text-neutral-400 py-1.5'>
       <div><span className='pointer-coarse:hidden'>Scroll</span><span className='hidden pointer-coarse:inline'>Swipe</span> for more info</div>
       <div className='flex items-center text-sm'>
         <FiChevronRight className='h-[0.8lh] animate-[fade-out_0.75s_ease_infinite_alternate]' />
@@ -75,15 +74,12 @@ const Education = <>
         <FiArrowUpRight />
       </Link>
     </div>
-  </div>
+  </ArticleSectionContent>
 </>
 
 const Credentials = <>
-  <div className='relative pb-10'>
-    <h2 className='sticky top-4 font-semibold'>Credentials</h2>
-  </div>
-
-  <div className='@container/content'>
+  <ArticleSectionHeading>Credentials</ArticleSectionHeading>
+  <ArticleSectionContent>
     <div className='font-semibold uppercase flex items-center gap-1 [--badge-color:var(--color-indigo-500)] text-sm'>
       <div className={cn_badge} />
       <span>Microsoft Azure</span>
@@ -93,14 +89,12 @@ const Credentials = <>
       <PropLine label='Exam' value='AZ-900' />
       <PropLine label='Awarded by' value='PearsonVUE Certiport' />
     </div>
-  </div>
+  </ArticleSectionContent>
 </>
 
 const Research = <>
-  <div className='relative pb-10'>
-    <h2 className='sticky top-4 font-semibold'>Research</h2>
-  </div>
-  <div>
+  <ArticleSectionHeading>Research</ArticleSectionHeading>
+  <div className={cn_prose}>
     As part of my undergraduate degree, I conducted a research project and submitted a dissertation. My research took an in-depth look at end-user computing (primarily low-code platforms)— its adoption and impacts on organisations.
     An article detailing my findings will be posted on my blog soon.
   </div>
@@ -109,10 +103,10 @@ const Research = <>
 function RouteComponent() {
   return <>
     <SingleColumn columnOptions={{ variant: 'base' }} className='@container/article'>
-      <div className='min-h-24 lg:min-h-44 flex items-end border-b border-neutral-500/20 py-3'>
-        <h1 className='text-2xl font-semibold'>About me</h1>
+      <div className='min-h-24 lg:min-h-44 flex items-end border-b border-neutral-500/20 py-3 font-mode-display'>
+        <h1 className='text-2xl font-bold'>About me</h1>
       </div>
-      <div className='@lg/article:grid grid-cols-[200px_1fr] py-3'>
+      <ArticleRoot className="my-6">
 
         {Education}
 
@@ -123,7 +117,7 @@ function RouteComponent() {
         <Divider lines={1} type='normal' className='my-4 col-span-full' />
 
         {Research}
-      </div>
+      </ArticleRoot>
     </SingleColumn>
     <Footer />
   </>

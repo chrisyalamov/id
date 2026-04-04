@@ -1,18 +1,26 @@
-import { createClientOnlyFn } from "@tanstack/react-start"
+import { createIsomorphicFn } from "@tanstack/react-start";
 
-export const formatDate = createClientOnlyFn((date: Date) => {
-  const options: Intl.DateTimeFormatOptions = {
-    day: "numeric",
-    month: "long",
-    year: "numeric"
-  }
+export const formatDate = createIsomorphicFn()
+  .client((date: Date) => {
+    const options: Intl.DateTimeFormatOptions = {
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    }
+    const locale = navigator.language
 
-  const locale = navigator.language
-
-  if (locale?.startsWith("en-")) {
     return new Intl.DateTimeFormat(locale, options).format(date)
-  } else {
-    return new Intl.DateTimeFormat().format(date)
-  }
-})
+  })
+  .server((date: Date) => {
+    const options: Intl.DateTimeFormatOptions = {
+      day: "numeric",
+      month: "numeric",
+      year: "numeric"
+    }
+
+    const locale = "en-gb"
+
+    return new Intl.DateTimeFormat(locale, options).format(date)
+  })
+
 

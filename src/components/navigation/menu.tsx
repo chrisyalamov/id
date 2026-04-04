@@ -27,6 +27,7 @@ const cn_link_base = `
     hover:text-[light-dark(var(--color-blue-600),var(--color-amber-400))]
     active:text-[light-dark(var(--color-blue-600),var(--color-amber-400))]
     overflow-hidden
+    font-mode-display
     `.trim()
 
 const cn_label = `    
@@ -120,7 +121,7 @@ export const LinkLarge = (props: MenuLinkProps) => {
 
 export const LinkSmall = (props: MenuLinkProps) => {
     const cn_link = `
-        text-sm leading-none
+        text-xs leading-none
         text-current/70
         block py-1
         pointer-coarse:text-sm pointer-coarse:py-1.5
@@ -140,10 +141,11 @@ export const LinkSmall = (props: MenuLinkProps) => {
 
 const cn_navbutton_base = `
     h-9 px-8 rounded-sm pointer-coarse:h-10
-    font-semibold leading-none text-sm flex items-center justify-center gap-2
+    font-semibold leading-none text-xs flex items-center justify-center gap-2
     cursor-pointer
     hover:opacity-80
     active:pt-[2px] active:opacity-50
+    font-mode-display
 `
 
 export const Menu = (props: Pick<MenuProps, "inSidebar">) => <MenuLayout

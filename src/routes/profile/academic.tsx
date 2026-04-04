@@ -28,7 +28,7 @@ type PropLineProps = {
 export function PropLine(props: PropLineProps) {
   return <div className={cn_propLine}>
     <p className='opacity-50 text-sm line-clamp-1 text-ellipsis break-all leading-none'>{props.label}</p>
-    <p className='font-ocr uppercase text-[0.75rem] leading-[1.18] tracking-tighter'>{props.value}</p>
+    <p className='font-ocr uppercase text-xs leading-[1.18] tracking-tighter'>{props.value}</p>
   </div>
 }
 
@@ -38,7 +38,7 @@ type TextBlockProps = {
 }
 
 const cn_textBlock = `
-  text-justify text-xs break-words hyphens-auto leading-tight 
+  text-xs break-words hyphens-auto leading-tight 
   gap-5 border border-neutral-400/20 py-2.5 px-3.5 rounded-md
   [&:has(input:not(:checked))_#content]:line-clamp-5
   [&:has(input:not(:checked))_#content]:opacity-50
@@ -77,11 +77,11 @@ function TextBlock(props: TextBlockProps) {
 function RouteComponent() {
   return <>
     <SingleColumn columnOptions={{ variant: 'base' }} className='@container/article'>
-      <div className='min-h-24 lg:min-h-44 flex items-end border-b border-neutral-500/20 py-3'>
+      <div className='min-h-24 lg:min-h-44 flex items-end border-b border-neutral-500/20 py-3 font-mode-display'>
         <h1 className='text-2xl hyphens-auto'>
           <Link to='/about' className='opacity-60 hover:opacity-100 active:opacity-30'>About me</Link>
           <span className='mx-2 opacity-20'>/</span>
-          <span className='font-semibold'>Academic profile</span>
+          <span className='font-bold'>Academic profile</span>
         </h1>
       </div>
       <div className='@container/content col-span-full w-full overflow-x-auto snap-x snap-mandatory'>

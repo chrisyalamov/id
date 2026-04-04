@@ -7,14 +7,14 @@ type ArticleRootProps = {
 }
 
 export const ArticleRoot = ({ mode = "fixedSidebar", children, className }: ArticleRootProps) => {
-    const cn_cols = mode === "fixedSidebar" ? "grid-cols-[200px_1fr] @3xl/article:grid-cols-[300px_1fr]" : "grid-cols-[1fr_minmax(auto,80ch)]"
+    const cn_cols = mode === "fixedSidebar" ? "grid-cols-[200px_1fr] @2xl/article:grid-cols-[275px_1fr]" : "grid-cols-[1fr_minmax(auto,80ch)]"
 
     return <div className={`@container/article ${className}`}>
-        <div className={`@lg/article:grid gap-x-10 ${cn_cols}`}>
+        <div className={`@xl/article:grid gap-x-10 ${cn_cols}`}>
             {children}
         </div>
     </div>
-}
+}   
 
 type ArticleSidebarStickyBlockProps = {
     children: React.ReactNode
@@ -34,7 +34,7 @@ type ArticleSectionHeadingProps = {
 
 export const ArticleSectionHeading = ({ children, ...props }: ArticleSectionHeadingProps) => {
     return <ArticleSidebarStickyBlock {...props}>
-        <h2 className='font-semibold'>{children}</h2>
+        <h2 className='font-semibold text-sm'>{children}</h2>
     </ArticleSidebarStickyBlock>
 }
 
@@ -45,7 +45,7 @@ type ArticleSectionContent = {
 export const ArticleSectionContent = ({ className, children, style, ...props }: ArticleSectionContent) => {
     return <div className={`@container/content ${className}`} style={{
         gridColumn: "2",
-        ...props
+        ...style
     }} {...props}>
         {children}
     </div>
@@ -60,24 +60,67 @@ export const ArticleFullSpread = ({ children, className, ...props} : HTMLProps<H
     </div>
 }
 
-export const cn_prose = `
-    text-xs prose prose-sm prose-neutral dark:prose-invert 
-    leading-normal  
-    max-w-none font-[450] 
-    prose-strong:font-semibold 
-    prose-headings:not-first:mt-10
+
+const getProseClassName = (size: "base" | "lg") => `
+    prose ${size === "base" ? "prose-sm text-[14px]" : "prose-base text-[16px]"} prose-neutral dark:prose-invert 
+    leading-[1.4]
+    text-black
+    dark:text-neutral-300
+    max-w-none 
+    
+    prose-strong:font-bold
+    prose-strong:text-current/75
+    prose-headings:not-first:mt-14
     prose-li:my-0 
     prose-a:active:opacity-40 prose-a:active:decoration-dotted 
     prose-a:hover:decoration-dotted prose-a:underline-offset-2
-    prose-p:not-first:not-last:my-5
-    prose-pre:bg-neutral-400/10
-    prose-pre:text-neutral-500
-    prose-pre:rounded-sm
+    prose-p:not-first:not-last:my-6
+    
+    prose-headings:font-mode-display
+    prose-h2:font-medium
+    prose-h2:font-mode-display
+    prose-h2:tracking-normal
+    prose-h2:text-current/65
+    prose-h3:text-current/55
+    prose-h2:mt-14
+    prose-h2:mb-3
+    prose-p:[font-feature-settings:"ss07"off]!
+
+    prose-pre:bg-neutral-400/5
+    prose-pre:text-reset
+
+    prose-pre:rounded-md
     prose-pre:last:mb-0
-    prose-blockquote:border-2
-    prose-blockquote:border-neutral-400/20
+    prose-pre:wrap-normal
+
+    prose-blockquote:border-none
+    prose-blockquote:ring
+    prose-blockquote:ring-inset
+    prose-blockquote:ring-neutral-400/25
     prose-blockquote:not-italic
-    prose-blockquote:py-2.5
-    prose-blockquote:px-3
-    prose-blockquote:rounded-sm
-`.trim().replace("\n", " ")
+    
+    prose-blockquote:py-4
+    prose-blockquote:[--housing-padding-y:calc(var(--spacing)*4)]
+    prose-blockquote:px-5
+    prose-blockquote:[--housing-padding-x:calc(var(--spacing)*5)]
+    
+    
+    prose-blockquote:rounded-md
+    prose-blockquote:*:before:content-none
+    
+    prose-code:after:content-none
+    prose-code:before:content-none
+    prose-pre:leading-tight
+    
+    
+    prose-pre:[corner-shape:superellipse(1.2)]
+    prose-blockquote:[corner-shape:superellipse(1.2)]
+
+    supports-corner-shape:prose-pre:rounded-xl
+
+    prose-blockquote:*:after:content-none
+    prose-blockquote:*:last:mb-0
+`
+
+export const cn_prose = getProseClassName("base").trim().replace("\n", " ")
+export const cn_prose_large = getProseClassName("lg").trim().replace("\n", " ")

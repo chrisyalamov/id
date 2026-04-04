@@ -38,11 +38,10 @@ function RouteComponent() {
         />
         <ColumnLayout variant='base'>
             <PhotoProvider>
-
                 <ArticleRoot mode='fixedSidebar' className='grow my-6'>
                     <ArticleSectionHeading>Introduction</ArticleSectionHeading>
                     <ArticleSectionContent className={cn_prose}>
-                        <p className='text-justify hyphens-auto'>
+                        <p>
                             I was approached by a photography studio based in New York which specialises in eCommerce product photography. The studio was looking for an improved way of capturing and communicating the value they provide to their clients.
                         </p>
                     </ArticleSectionContent>
@@ -51,10 +50,10 @@ function RouteComponent() {
 
                     <ArticleSectionHeading>Background</ArticleSectionHeading>
                     <ArticleSectionContent className={cn_prose}>
-                        <p className='text-justify hyphens-auto'>
+                        <p>
                             The studio primarily used Dropbox for storing and distributing work to clients. A standardised directory structure was used, where each client, project, and product had dedicated folders. While this made sharing files easy, summarising the work completed was challenging.
                         </p>
-                        <p className='text-justify hyphens-auto'>
+                        <p>
                             It was necessary to manually log each project, product and product shot, which was time-consuming and prone to errors.
                         </p>
                     </ArticleSectionContent>
@@ -63,7 +62,7 @@ function RouteComponent() {
 
                     <ArticleSectionHeading>Solution</ArticleSectionHeading>
                     <ArticleSectionContent className={cn_prose}>
-                        <p className='text-justify hyphens-auto'>
+                        <p>
                             To develop an appropriate solution, I used Microsoft Azure Functions for communicating with the Dropbox and Google Sheets APIs; and Temporal.io for workflow orchestration, to make it easy to integrate this process with other aspects of the studio's workflows and business logic.
                         </p>
                     </ArticleSectionContent>

@@ -40,7 +40,7 @@ export const Clock = () => {
         }, 1000)
 
         return () => clearInterval(timer)
-    })
+    }, [])
 
 
     const cn_clockDisplay = `
@@ -49,7 +49,7 @@ export const Clock = () => {
         bg-black 
         border border-[light-dark(transparent,var(--color-blue-500))]
         text-white 
-        px-2 py-1 
+        px-2 py-1
         font-pixel text-xl
     `
 

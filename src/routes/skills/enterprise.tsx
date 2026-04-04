@@ -8,7 +8,7 @@ export const Route = createFileRoute('/skills/enterprise')({
 
 function RouteComponent() {
   return <div className={cn_prose}>
-    <h3>Enterprise skillset</h3>
+    <h3 className="font-mode-display">Enterprise skillset</h3>
     <p>
       I've led and been part of a number of cross-functional teams driving strategic initiatives from conception to execution. I am experienced with developing business propositions, formulating pitches, and analysing business cases. I have used various tools for analysis, including competitor analysis; segmentation, targeting, and positioning; and mapping out value proposition canvases.
     </p>
