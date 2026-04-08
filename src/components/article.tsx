@@ -69,7 +69,6 @@ const getProseClassName = (size: "base" | "lg") => `
     max-w-none 
     
     prose-strong:font-bold
-    prose-strong:text-current/75
     prose-headings:not-first:mt-14
     prose-li:my-0 
     prose-a:active:opacity-40 prose-a:active:decoration-dotted 
@@ -80,7 +79,6 @@ const getProseClassName = (size: "base" | "lg") => `
     prose-h2:font-medium
     prose-h2:font-mode-display
     prose-h2:tracking-normal
-    prose-h2:text-current/65
     prose-h3:text-current/55
     prose-h2:mt-14
     prose-h2:mb-3

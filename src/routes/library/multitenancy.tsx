@@ -15,7 +15,7 @@ function RouteComponent() {
         <SingleColumn columnOptions={{ variant: 'lg', centre: true }} className='@container/article'>
             <div className='min-h-24 lg:min-h-44 flex items-end border-b border-neutral-500/20 py-3 font-mode-display'>
                 <h1 className='text-2xl'>
-                    <span className='font-medium opacity-50'>{formatDate(new Date("2025-08-18"))} </span>
+                    <span className='font-medium opacity-50' suppressHydrationWarning>{formatDate(new Date("2025-08-18"))} </span>
                     <span className='font-semibold'>Approaches to Multitenancy</span>
                 </h1>
             </div>
@@ -37,10 +37,7 @@ function RouteComponent() {
                         Brief note
                     </h2>
                     <p>
-                        <strong>This is not a tutorial</strong>. There are some code examples in this post, but they are purely for demonstration purposes. Designing a multi-tenant architecture is a big feat that involves various architectural considerations (e.g. sharding, replication, load balancing, etc.). This post is just a summary of some of the patterns or approaches you are likely to come across.
-                    </p>
-                    <p>
-                        If you are implementing a multi-tenant architecture, you will have to worry about a lot more than just your database. A multi-tenant model will affect your whole infrastructure and you will need to think about various architectural considerations (e.g. load balancing, sharding, replication) and challenges (e.g. noisy neighbour problem).
+                        <strong>This is not a tutorial</strong>. There are some code examples in this post, but they are purely for demonstration purposes. If you are implementing a multi-tenant architecture, you will have to worry about a lot more than just your database. A multi-tenant model will affect your whole infrastructure and you will need to think about various architectural considerations (e.g. load balancing, sharding, replication) and challenges (e.g. noisy neighbour problem). This post is just a summary of some of the patterns or approaches you are likely to come across.
                     </p>
                     <h2>
                         Approach I: Application-level filtering

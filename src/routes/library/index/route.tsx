@@ -19,7 +19,7 @@ const PostBlock = ({title, description, date, ...props}: PostBlockProps) => {
       <h2 className='font-semibold underline underline-offset-2 decoration-dotted decoration-neutral-400/50'>{title}</h2>
       <p className='opacity-75 text-xs'>{description}</p>
     </div>
-    <div className='text-xs opacity-50 text-nowrap'>
+    <div className='text-xs opacity-50 text-nowrap' suppressHydrationWarning>
       {formatDate(date)}
     </div>
   </Link>
