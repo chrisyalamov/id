@@ -1,4 +1,4 @@
-import { createServerFn } from '@tanstack/react-start'
+import { createMiddleware, createServerFn } from '@tanstack/react-start'
 import { staticFunctionMiddleware } from '@tanstack/start-static-server-functions'
 import z from "zod"
 import js from '@shikijs/langs/javascript'
@@ -23,11 +23,8 @@ export const serverRenderCodeBlock = createServerFn({ method: 'GET' })
         language: z.enum(['ts', 'js', 'sql', 'cs']),
         code: z.string()
     }))
-    .middleware([staticFunctionMiddleware])
+    // .middleware([staticFunctionMiddleware])
     .handler(async (ctx) => {
-        console.log("HELLOOOOOO I HAVE BEEN EXECUTED \n\n\n\n\n\n\n\n\n\n\n\n\n**********\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
-        console.log(process.env)
-        console.log(import.meta.env)
         return highlighter.codeToHast(ctx.data.code, {
             lang: ctx.data.language,
             structure: "inline",

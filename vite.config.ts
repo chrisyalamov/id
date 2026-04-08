@@ -4,11 +4,13 @@ import tailwindcss from '@tailwindcss/vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import { nitro } from "nitro/vite";
 // import deno from "@deno/vite-plugin"
+import { cloudflare } from "@cloudflare/vite-plugin";
+
 
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
-    host: true
+    host: true,
   },
   resolve: {
     tsconfigPaths: true
@@ -16,16 +18,18 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     nitro({
-      preset: "node-server"
+      preset: "cloudflare-module",
+      cloudflare: {
+        deployConfig: true,
+      },
     }),
+    // cloudflare({ viteEnvironment: { name: 'ssr' } }),
     tanstackStart({
       prerender: {
-        enabled: true
-      }
+        enabled: true,
+      },
     }),
     // deno(),
-    // cloudflare({ viteEnvironment: { name: 'ssr' } }),
     viteReact(),
-  ],
+  ] 
 })
-console.log("HELLOOO")
