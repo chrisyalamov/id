@@ -8,7 +8,7 @@ export const Route = createFileRoute('/skills/design')({
 
 function RouteComponent() {
   return <div className={cn_prose}>
-    <h3>Design skillset</h3>
+    <h3 className="font-mode-display">Design skillset</h3>
     <p>
       I have extensive experience in various design domains, particularly graphic design; UI/UX; print media.
     </p>

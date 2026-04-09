@@ -49,6 +49,7 @@ export const ColumnLayout = ({ className, variant = "base", noPadding = false, c
     const cn_padding = noPadding ? "" : "px-6 "
     
     const cn_column = `
+    w-full
         ${centre ? "mx-auto" : ""}
         ${cn_padding}
         ${cn_width}

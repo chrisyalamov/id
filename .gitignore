@@ -10,3 +10,5 @@ count.txt
 dist
 .vscode
 .notes
+.output
+.wrangler

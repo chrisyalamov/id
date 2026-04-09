@@ -8,7 +8,7 @@ export const Route = createFileRoute('/skills/data')({
 
 function RouteComponent() {
   return <div className={cn_prose}>
-    <h3>Data skillset</h3>
+    <h3 className="font-mode-display">Data skillset</h3>
     <p>
       I have experience with using data to provide clarity by extracting insights that are easy to understand and act upon. I am also familiar with technical, having worked with both relational and NoSQL databases and various BI software.
     </p>

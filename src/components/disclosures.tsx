@@ -53,7 +53,8 @@ export const DisclosuresPanel = (props: DisclosuresPanelProps) => {
                     </span>
                 </h2>
                 <p className="text-sm mb-10 text-justify leading-tight">
-                    I value transparency, trust, and honesty when showcasing my work. In the interests of ethics and legal compliance, the following disclosures are made regarding the project described above:
+                    I value transparency, trust, and honesty when showcasing my work. In the interests of ethics and 
+                    legal compliance, the following disclosures are made with relevance to the work described herein:
                 </p>
             </div>
             <div>

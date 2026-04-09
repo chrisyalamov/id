@@ -1,6 +1,6 @@
 import type { HTMLProps } from "react"
 import { ColumnLayout, type ColumnConfig } from "./column.tsx"
-import { NavMenu } from "@components/navigation.tsx"
+import { NavBar } from "@components/navigation/index.tsx"
 
 type LayoutProps = HTMLProps<HTMLDivElement> & {
     columnOptions?: ColumnConfig
@@ -14,7 +14,7 @@ type LayoutProps = HTMLProps<HTMLDivElement> & {
 export const SingleColumn = ({ columnOptions, ...props }: LayoutProps) => {
     return <ColumnLayout className="py-4" {...columnOptions}>
         <header>
-            <NavMenu inSidebar={false} />
+            <NavBar inSidebar={false} />
         </header>
         <div {...props} />
     </ColumnLayout>

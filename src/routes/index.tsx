@@ -7,6 +7,7 @@ import { QuickLink } from "@components/homepage-quick-link.tsx";
 import { DirectionalArrow } from "@/icons/directional-arrow.tsx";
 import { Showcase } from "@components/showcase.tsx";
 import { SkillsDirectory } from "@components/skills.tsx";
+import { cn_prose } from "@components/article.tsx";
 
 export const Route = createFileRoute("/")({
   component: App,
@@ -24,22 +25,19 @@ function App() {
                 Hello,
               </p>
               <p className="font-display uppercase opacity-50 text-justify">
-                I'm Christian Yalamov— a graduate analyst and developer from
-                Bulgaria, currently working for Accenture in Manchester, UK.
+                I'm Christian— a designer and software engineer, currently working at Accenture UK, on a project for Channel 4.
               </p>
             </div>
 
-            <h2 className="text-current/65 text-sm my-2 mt-20">About me</h2>
-            <p>
-              I am a Graduate Analyst at Accenture, working within the
-              Technology Analyst Group (TAG) in Manchester. My background is
-              primarily in software and web development, and I have experience
-              in product and User Experience (UX) design.
+            <h2 className="text-current/50 text-xs my-2 mt-16">About me</h2>
+            <p className={`mb-4 ${cn_prose}`}>
+              Somewhere between an engineer and a designer. Experienced with building software, designing systems and
+              solutions. I have an affinity for the creative kind of design too (graphic, branding, product, UX).
             </p>
 
             <Divider type="normal" lines={4} className="my-10" />
 
-            <h2 className="text-current/65 text-sm my-2">Go to</h2>
+            <h2 className="text-current/50 text-xs my-2">Go to</h2>
             <QuickLink
               to="/archive"
               description="Project portfolio"
@@ -61,11 +59,11 @@ function App() {
 
             <Divider type="normal" lines={4} className="my-10" />
 
-            <h2 className="text-sm my-2">
+            <h2 className="text-xs my-2">
               <span className="font-semibold">Skills</span>&nbsp;&nbsp;
-              <span className="pointer-coarse:hidden opacity-60">Click</span>
-              <span className="pointer-fine:hidden opacity-60">Tap</span>
-              <span className="opacity-60">on a skill to find out more</span>
+              <span className="pointer-coarse:hidden opacity-50">Click</span>
+              <span className="pointer-fine:hidden opacity-50">Tap</span>
+              <span className="opacity-50"> on a skill to find out more</span>
             </h2>
 
             {SkillsDirectory}
@@ -73,7 +71,7 @@ function App() {
         </MainLayout>
 
         <div
-          className="h-12 flex items-center bg-neutral-400/10 dark:bg-neutral-500/5 justify-start tracking-wide text-current/75 text-xs gap-1.5 w-full px-6"
+          className="h-12 flex items-center bg-neutral-400/10 dark:bg-neutral-500/5 justify-start tracking-wide text-current/75 text-xs gap-1.5 w-full px-6 font-mode-display"
           id="showcase"
         >
           <DirectionalArrow direction="br" className="text-lg" />
@@ -92,7 +90,7 @@ function App() {
       </div>
 
 
-        <Showcase />
+      <Showcase />
     </>
   );
 }

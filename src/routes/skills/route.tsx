@@ -18,8 +18,8 @@ function RouteComponent() {
 
     return <>
         <SingleColumn columnOptions={{ variant: 'base' }} className='@container/article'>
-            <div className='min-h-24 lg:min-h-44 flex items-end border-b border-neutral-500/20 py-3'>
-                <h1 className='text-2xl font-semibold'>Skills</h1>
+            <div className='min-h-24 lg:min-h-44 flex items-end border-b border-neutral-500/20 py-3 font-mode-display'>
+                <h1 className='text-2xl font-bold'>Skills</h1>
             </div>
             <div className={`py-3 ${cn_container}`}>
                 <div className={cn_skills_dir}>

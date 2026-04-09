@@ -31,7 +31,7 @@ export const Reel = ({children, className, ...props}: HTMLProps<HTMLDivElement>)
         fadeTowards="right"
       />
 
-      <div className="flex py-10 -ml-col-padding-base px-col-padding-base gap-8 *:rounded-[6px] dark:[&>img]:bg-neutral-900 *:object-contain *:max-h-56 lg:*:max-h-96 *:h-[50vh] [&>img]:outline *:-outline-offset-1 *:outline-black/5 dark:*:outline-white/5 mask-fade-both shrink-0 *:snap-start overflow-x-visible">
+      <div className="flex py-10 -ml-col-padding-base px-col-padding-base gap-4 *:rounded-[6px] dark:[&>img]:bg-neutral-900 *:object-contain *:max-h-56 lg:*:max-h-96 *:h-[50vh] [&>img]:outline *:-outline-offset-1 *:outline-black/5 dark:*:outline-white/5 mask-fade-both shrink-0 *:snap-start overflow-x-visible">
         {children}
       </div>
 

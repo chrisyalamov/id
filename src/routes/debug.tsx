@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { NavMenu } from "@components/navigation.tsx";
+import { NavBar } from "@components/navigation/index.tsx";
 
 export const Route = createFileRoute('/debug')({
   component: RouteComponent,
@@ -7,6 +7,6 @@ export const Route = createFileRoute('/debug')({
 
 function RouteComponent() {
   return <div>
-    <NavMenu />
+    <NavBar />
   </div>
 }

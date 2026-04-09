@@ -1,4 +1,4 @@
-import { type CSSProperties, type HTMLProps, type RefObject } from "react";
+import { type CSSProperties, type HTMLProps } from "react";
 import { useResizeObserver } from '@mantine/hooks';
 
 type DynamicMarqueeProps = HTMLProps<HTMLDivElement> & {
@@ -40,7 +40,7 @@ export function DynamicMarquee({style, secPerCharacter = 0.08, secPause = 2, ...
         maskImage: isOverflowing ? "linear-gradient(to right, transparent, black 4px, black calc(100% - 8px), transparent 100%)" : undefined,
     }}>
         <div 
-            ref={spanRef as RefObject<HTMLDivElement>}
+            ref={spanRef as any}
             {...props} 
             style={{
                 wordWrap: "break-word", 

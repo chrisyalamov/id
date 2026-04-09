@@ -1,11 +1,12 @@
 import type { HTMLProps } from "react";
+import { LuAsterisk } from "react-icons/lu";
 
 type DividerProps = {
     type: "normal" | "strong" | "solid" | "heavy" | "spaced"
     lines: number
 } & HTMLProps<HTMLDivElement>
 
-export function Divider({ type = "normal", lines = 4, className, ...props }: DividerProps) {
+export const Divider = ({ type = "normal", lines = 4, className, ...props }: DividerProps) => {
     let cn_spacing = `gap-px`
     let cn_line;
 
@@ -42,5 +43,13 @@ export function Divider({ type = "normal", lines = 4, className, ...props }: Div
                 <div key={i} className={cn_line} />
             ))
         }
+    </div>
+}
+
+export const BlockDivider = () => {
+    return <div className="bg-current/10 text-neutral-400 rounded w-full flex items-center justify-center px-4 py-3">
+        <LuAsterisk />
+        <LuAsterisk />
+        <LuAsterisk />
     </div>
 }

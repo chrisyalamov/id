@@ -11,8 +11,8 @@ export const Route = createFileRoute('/legal/')({
 function RouteComponent() {
   return <>
     <SingleColumn columnOptions={{ variant: 'base' }} className='@container/article'>
-      <div className='min-h-24 lg:min-h-44 flex items-end border-b border-neutral-500/20 py-3'>
-        <h1 className='text-2xl font-semibold'>Legal</h1>
+      <div className='min-h-24 lg:min-h-44 flex items-end border-b border-neutral-500/20 py-3 font-mode-display'>
+        <h1 className='text-2xl font-bold'>Legal</h1>
       </div>
       <ArticleRoot className='py-3'>
         <ArticleSectionHeading>Intellectual property</ArticleSectionHeading>

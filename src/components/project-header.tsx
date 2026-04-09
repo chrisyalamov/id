@@ -1,7 +1,7 @@
 import { ColumnLayout, type ColumnConfig } from "@/layouts/column"
 import { Badge, type BadgeProps } from "./badge"
-import { Divider } from "./divider"
-import { NavMenu } from "./navigation"
+import { NavBar } from "./navigation"
+import { Divider } from "./divider.tsx";
 
 type ProjectHeaderContainerProps = {
     name: string
@@ -26,7 +26,8 @@ export const ProjectHeaderContainer = (props: ProjectHeaderContainerProps) => {
             ${className} ${bgClass} 
             border-(--project-header-border_) 
             [--project-header-accent_:var(--project-header-accent,currentColor)] 
-            [--project-header-border_:var(--project-header-border,var(--project-header-accent,light-dark(var(--color-neutral-100),var(--color-neutral-900))))]`}
+            [--project-header-border_:var(--project-header-border,var(--project-header-accent,light-dark(var(--color-neutral-100),var(--color-neutral-900))))]
+            font-mode-display`}
     >
         <div className={`${
             props?.accented
@@ -35,7 +36,7 @@ export const ProjectHeaderContainer = (props: ProjectHeaderContainerProps) => {
         } sticky top-0`}>
             <ColumnLayout variant={props?.columnVariant ?? "full"}>
                 <div className="py-3">
-                    <NavMenu
+                    <NavBar
                         inSidebar={false}
                         badgeProps={badgeProps}
                         locator={
