@@ -12,7 +12,7 @@ export const Route = createFileRoute('/library/multitenancy')({
 
 function RouteComponent() {
     return <>
-        <SingleColumn columnOptions={{ variant: 'lg', centre: true }} className='@container/article'>
+        <SingleColumn columnOptions={{ variant: 'base', centre: true }} className='@container/article'>
             <div className='min-h-24 lg:min-h-44 flex items-end border-b border-neutral-500/20 py-3 font-mode-display'>
                 <h1 className='text-2xl'>
                     <span className='font-medium opacity-50' suppressHydrationWarning>{formatDate(new Date("2025-08-18"))} </span>

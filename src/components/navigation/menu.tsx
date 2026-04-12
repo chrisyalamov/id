@@ -101,7 +101,7 @@ export const LinkLarge = (props: MenuLinkProps) => {
         text-xl font-bold leading-none
         py-1 flex items-center justify-between
         gap-16 @lg/nav:gap-28
-        pointer-coarse:py-1.5
+        pointer-coarse:text-2xl
         ${cn_link_base}
     `
 
@@ -124,7 +124,7 @@ export const LinkSmall = (props: MenuLinkProps) => {
         text-xs leading-none
         text-current/70
         block py-1
-        pointer-coarse:text-sm pointer-coarse:py-1.5
+        pointer-coarse:text-sm
         ${cn_link_base}
     `
 

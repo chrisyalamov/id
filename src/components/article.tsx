@@ -84,8 +84,9 @@ const getProseClassName = (size: "base" | "lg") => `
     prose-h2:mb-3
     prose-p:[font-feature-settings:"ss07"off]!
 
-    prose-pre:bg-neutral-400/5
+    prose-pre:bg-neutral-400/10
     prose-pre:text-reset
+    prose-pre:[font-size:inherit]
 
     prose-pre:rounded-md
     prose-pre:last:mb-0
@@ -108,7 +109,7 @@ const getProseClassName = (size: "base" | "lg") => `
     
     prose-code:after:content-none
     prose-code:before:content-none
-    prose-pre:leading-tight
+    prose-pre:leading-snug
     
     
     prose-pre:[corner-shape:superellipse(1.2)]
