@@ -2,7 +2,7 @@ import { Footer } from '@components/footer.tsx'
 import { SingleColumn } from '@layouts/single-column.tsx'
 import { createFileRoute } from '@tanstack/react-router'
 import { formatDate } from './-format-date.ts'
-import { ArticleRoot, ArticleSectionContent, ArticleSidebarStickyBlock, cn_prose_large } from '@/components/article.tsx'
+import { ArticleRoot, ArticleSectionContent, ArticleSidebarBlock, ArticleSidebarStickyBlock, cn_prose_large } from '@/components/article.tsx'
 import { Codeblock } from "@components/codeblock.tsx";
 import { BlockDivider } from "@components/divider.tsx";
 
@@ -33,11 +33,8 @@ function RouteComponent() {
                     <p>
                         Separating your application's data and behaviour for different tenants is typically called multi-tenancy. The best multi-tenancy architecture will depend on a lot of factors to do with the nature and design of your application.
                     </p>
-                    <h2>
-                        Brief note
-                    </h2>
                     <p>
-                        <strong>This is not a tutorial</strong>. There are some code examples in this post, but they are purely for demonstration purposes. If you are implementing a multi-tenant architecture, you will have to worry about a lot more than just your database. A multi-tenant model will affect your whole infrastructure and you will need to think about various architectural considerations (e.g. load balancing, sharding, replication) and challenges (e.g. noisy neighbour problem). This post is just a summary of some of the patterns or approaches you are likely to come across.
+                        Brief note: <strong>This is not a tutorial</strong>. There are some code examples in this post, but they are purely for demonstration purposes. If you are implementing a multi-tenant architecture, you will have to worry about a lot more than just your database. A multi-tenant model will affect your whole infrastructure and you will need to think about various architectural considerations (e.g. load balancing, sharding, replication) and challenges (e.g. noisy neighbour problem). This post is just a summary of some of the patterns or approaches you are likely to come across.
                     </p>
                     <h2>
                         Approach I: Application-level filtering
@@ -134,7 +131,7 @@ public class OrdersDbContext : DbContext
     // The TenantProvider is injected as a scoped service
     // which detects the tenant (e.g. based off the request headers)
     // and supplies it to the DbContext
-    public OrdersDbContext(DbContextOptions&lt;OrdersDbContext&gt; options, TenantProvider tenantProvider)
+    public OrdersDbContext(DbContextOptions<OrdersDbContext> options, TenantProvider tenantProvider)
     : base(options)
     {
         _tenantId = tenantProvider.TenantId;
@@ -143,7 +140,7 @@ public class OrdersDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // Applying a filter on every query on the Orders table
-        modelBuilder.Entity & lt;Order&gt;().HasQueryFilter(o =&gt; o.TenantId == _tenantId);
+        modelBuilder.Entity & <Order>().HasQueryFilter(o => o.TenantId == _tenantId);
     }
 }
                                 `.trim()}
@@ -173,9 +170,17 @@ USING (tenant_id::TEXT = current_setting("context.tenant"));
                     <p>
                         Here, we’re only allowing rows to be visible if their<code>tenant_id</code> matches the <code>context.tenant</code> configuration parameter.
                     </p>
+
                     <p>
                         You may wonder how we set this parameter value in the first place. In Postgres, this is done either with <code>set_config(key, value, is_local)</code> or the SQL syntax <code>SET [LOCAL] key to value</code>. A setting being local means that it is only scoped to the current transaction—&nbsp;after the transaction ends, the setting no longer exists. We can do this at the start of the transaction:
                     </p>
+                </ArticleSectionContent>
+                <ArticleSidebarBlock className={`${cn_prose_large} mt-5`}>
+                    <blockquote>
+                        <strong>NB</strong> Postgres has specific requirements for configuration parameters. Refer to <a href="https://www.postgresql.org/docs/current/config-setting.html">Chapter 20.1 of the official documentation</a>.
+                    </blockquote>
+                </ArticleSidebarBlock>
+                <ArticleSectionContent className={`${cn_prose_large} mt-5`}>
                     <Codeblock
                         route={Route}
                         id="pg-rls-2"
@@ -185,13 +190,7 @@ SET LOCAL "context.tenant" TO 'ACME Corp'
                                 `.trim()}
                     />
                     <p>
-                        and then have the value available until the end.
-                    </p>
-                    <blockquote>
-                        <strong>NB</strong> Postgres has specific requirements for configuration parameters. Refer to <a href="https://www.postgresql.org/docs/current/config-setting.html">Chapter 20.1 of the official documentation</a>.
-                    </blockquote>
-                    <p>
-                        You might also wonder why we’re now doing the check on the database, instead of the application—&nbsp;what difference does it make?
+                        and then have the value available until the end. You might also wonder why we’re now doing the check on the database, instead of the application—&nbsp;what difference does it make?
                     </p>
                     <p>
                         One reason is certainty. With the first approach (filtering at the application level), it is possible to forget to add a <code>WHERE</code> clause somewhere, leaving data unfiltered.
@@ -209,16 +208,7 @@ SET LOCAL "context.tenant" TO 'ACME Corp'
                         In most cases, multi-tenant products place all tenants together on the same, shared infrastructure. But there are other cases, where it might make more sense to create separate deployments on dedicated infrastructure for individual clients.
                     </p>
                     <p>
-                        To do this, you can replicate components of your infrastructure for each new tenant.
-                    </p>
-                    <blockquote>
-                        <strong>Docker</strong> is a containerisation tool which allows you to package your applications into ‘images.’ Because the Docker runtime virtualises the operating system (not the hardware, like with a Virtual Machine), you can deploy these images on almost any host infrastructure.
-                    </blockquote>
-                    <blockquote>
-                        <strong>IaC</strong> stands for Infrastructure as Code, and gives you a way to deploy infrastructure declaratively. Inside a code file, you <em>declare</em> the different infrastructure components required for your solution and your IaC tool (such as Pulumi or Terraform) handles their deployment and setup.
-                    </blockquote>
-                    <p>
-                        Using technologies like Docker and IaC, you can easily deploy components for new tenants, automatically. Microsoft refers to this pattern as ‘deployment stamps.’
+                        Using technologies like Docker and IaC, you can easily deploy reproducible sets of components for each tenant. Microsoft refers to this pattern as ‘deployment stamps.’
                     </p>
                     <p>
                         Which components you replicate will again depend on your unique case. For instance, you may only need to create separate databases, while keeping application servers shared. Or, you may wish to have dedicated application servers for compliance reasons, but retain some services (like authentication) shared between everyone.

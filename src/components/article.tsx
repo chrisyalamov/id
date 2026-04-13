@@ -14,17 +14,22 @@ export const ArticleRoot = ({ mode = "fixedSidebar", children, className }: Arti
             {children}
         </div>
     </div>
-}   
+}
 
 type ArticleSidebarStickyBlockProps = {
     children: React.ReactNode
 } & HTMLProps<HTMLDivElement>
 
 export const ArticleSidebarStickyBlock = ({ children, className, ...props }: ArticleSidebarStickyBlockProps) => {
-    return <div {...props} className={`relative pb-10 @lg/article:pb-0 scroll-mt-4 ${className}`}>
+    return <div {...props} className={`relative pb-4 @lg/article:pb-0 scroll-mt-4 ${className}`}>
         <div className="sticky top-4 ">
             {children}
         </div>
+    </div>
+}
+export const ArticleSidebarBlock = ({ children, className, ...props }: ArticleSidebarStickyBlockProps) => {
+    return <div {...props} className={`pb-4 @lg/article:pb-0 scroll-mt-4 ${className}`}>
+        {children}
     </div>
 }
 
@@ -54,7 +59,7 @@ export const ArticleSectionContent = ({ className, children, style, ...props }: 
 /**
  * Note: best practice: mt-6 mb-4 
  */
-export const ArticleFullSpread = ({ children, className, ...props} : HTMLProps<HTMLDivElement>) => {
+export const ArticleFullSpread = ({ children, className, ...props }: HTMLProps<HTMLDivElement>) => {
     return <div className={`col-span-full max-w-none ${className}`} {...props}>
         {children}
     </div>
@@ -69,19 +74,18 @@ const getProseClassName = (size: "base" | "lg") => `
     max-w-none 
     
     prose-strong:font-bold
-    prose-headings:not-first:mt-14
+    prose-headings:not-first:mt-10
     prose-li:my-0 
     prose-a:active:opacity-40 prose-a:active:decoration-dotted 
     prose-a:hover:decoration-dotted prose-a:underline-offset-2
-    prose-p:not-first:not-last:my-6
+    prose-p:not-first:not-last:my-5
     
     prose-headings:font-mode-display
     prose-h2:font-medium
     prose-h2:font-mode-display
     prose-h2:tracking-normal
     prose-h3:text-current/55
-    prose-h2:mt-14
-    prose-h2:mb-3
+    prose-h2:mt-10
     prose-p:[font-feature-settings:"ss07"off]!
 
     prose-pre:bg-neutral-400/10
