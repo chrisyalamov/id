@@ -1,22 +1,22 @@
 import { Footer } from '@components/footer.tsx'
 import { SingleColumn } from '@layouts/single-column.tsx'
 import { createFileRoute } from '@tanstack/react-router'
-import { formatDate } from './-format-date.ts'
-import { ArticleRoot, ArticleSectionContent, ArticleSidebarBlock, ArticleSidebarStickyBlock, cn_prose_large } from '@/components/article.tsx'
+import { formatDate } from '../-format-date.ts'
+import { ArticleRoot, ArticleSectionContent, ArticleSidebarBlock, ArticleSidebarStickyBlock, cn_prose, cn_prose_large } from '@/components/article.tsx'
 import { Codeblock } from "@components/codeblock.tsx";
 import { BlockDivider } from "@components/divider.tsx";
 
-export const Route = createFileRoute('/library/multitenancy')({
+export const Route = createFileRoute('/library/_posts/multitenancy')({
     component: RouteComponent,
 })
 
 function RouteComponent() {
     return <>
-        <SingleColumn columnOptions={{ variant: 'base', centre: true }} className='@container/article'>
+        <SingleColumn columnOptions={{ variant: 'sm', centre: true }} className='@container/article'>
             <div className='min-h-24 lg:min-h-44 flex items-end border-b border-neutral-500/20 py-3 font-mode-display'>
                 <h1 className='text-2xl'>
+                    <span className='font-semibold'>Approaches to Multitenancy </span>
                     <span className='font-medium opacity-50' suppressHydrationWarning>{formatDate(new Date("2025-08-18"))} </span>
-                    <span className='font-semibold'>Approaches to Multitenancy</span>
                 </h1>
             </div>
             <ArticleRoot className='py-5'>
@@ -24,7 +24,7 @@ function RouteComponent() {
                     <p>Notes on creating multi-tenant architectures and systems</p>
                     <p className='opacity-50 my-4 mb-12 underline decoration-dotted underline-offset-2'>Christian Yalamov</p>
                 </ArticleSidebarStickyBlock>
-                <ArticleSectionContent className={cn_prose_large}>
+                <ArticleSectionContent className={cn_prose}>
                     <p>
                         Software-as-a-Service (SaaS) has emerged as a popular distribution model for software.
                         SaaS is deployed and hosted by the vendor for use by its customers— we tend to refer to these as 'tenants.' A tenant can represent something like a client or workspace. Each tenant has its own data.</p>
