@@ -86,6 +86,7 @@ const getProseClassName = (size: "base" | "lg") => `
     prose-h2:tracking-normal
     prose-h3:text-current/55
     prose-h2:mt-10
+    prose-h3:mt-5!
     prose-p:[font-feature-settings:"ss07"off]!
 
     prose-pre:bg-neutral-400/10
