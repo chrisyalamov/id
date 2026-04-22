@@ -16,7 +16,7 @@ type PostBlockProps = {
 const PostBlock = ({title, description, date, ...props}: PostBlockProps) => {
   return <Link className='flex flex-col sm:flex-row items-start justify-between gap-y-2 gap-x-4 -mx-2 px-2 py-1.5 pointer-coarse:py-3 rounded hover:bg-neutral-400/10 active:opacity-50 mb-4' {...props} viewTransition>
     <div>
-      <h2 className='font-semibold underline underline-offset-2 decoration-dotted decoration-neutral-400/50'>{title}</h2>
+      <h2 className='font-semibold underline underline-offset-2 decoration-dotted decoration-neutral-400 text-sm'>{title}</h2>
       <p className='opacity-75 text-xs'>{description}</p>
     </div>
     <div className='text-xs opacity-50 text-nowrap' suppressHydrationWarning>
@@ -32,6 +32,12 @@ function RouteComponent() {
         <h1 className='text-2xl font-bold'>Library</h1>
       </div>
       <div className='py-3'>
+        <PostBlock 
+          title='The intricacies of running untrusted code'
+          description='Ideas on how to (safely) run untrusted, user-provided and AI-generated code'
+          date={new Date("2026-04-14")}
+          to='/library/untrusted-code-execution'
+        />
         <PostBlock 
           title='Approaches to Multitenancy'
           description='Notes on implementing multi-tenant architectures'
