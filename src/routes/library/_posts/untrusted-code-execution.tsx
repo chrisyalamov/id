@@ -2,9 +2,8 @@ import { Footer } from '@components/footer.tsx'
 import { SingleColumn } from '@layouts/single-column.tsx'
 import { createFileRoute } from '@tanstack/react-router'
 import { formatDate } from '../-format-date.ts'
-import { ArticleRoot, ArticleSectionContent, ArticleSidebarBlock, ArticleSidebarStickyBlock, cn_prose, cn_prose_large } from '@/components/article.tsx'
-import { Codeblock } from "@components/codeblock.tsx";
-import { BlockDivider } from "@components/divider.tsx";
+import { ArticleRoot, ArticleSectionContent, ArticleSidebarStickyBlock, cn_prose } from '@/components/editorial/article.tsx'
+import { Callout } from '@/components/editorial/callout.tsx'
 
 export const Route = createFileRoute('/library/_posts/untrusted-code-execution')({
     component: RouteComponent,
@@ -30,9 +29,9 @@ function RouteComponent() {
                     <p>
                         Running untrusted code seems trivial at first but quickly explodes in complexity, carries an immense amount of risk, and requires a <strong>lot</strong> of work to get right.</p>
                     
-                    <div className='my-4 px-3 py-2 border border-amber-400 rounded'>
+                    <Callout>
                         This article is <strong>not a tutorial</strong>. It is a deep-dive into untrusted code execution, looking at how systems like AWS Lambda and similar serverless providers are able to securely and safely execute code which is provided by users, and could possibly be malicious. 
-                    </div>
+                    </Callout>
 
                     <h2>Why do this in the first place?</h2>
                     <p>
