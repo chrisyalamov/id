@@ -175,12 +175,12 @@ USING (tenant_id::TEXT = current_setting("context.tenant"));
                         You may wonder how we set this parameter value in the first place. In Postgres, this is done either with <code>set_config(key, value, is_local)</code> or the SQL syntax <code>SET [LOCAL] key to value</code>. A setting being local means that it is only scoped to the current transaction—&nbsp;after the transaction ends, the setting no longer exists. We can do this at the start of the transaction:
                     </p>
                 </ArticleSectionContent>
-                <ArticleSidebarBlock className={`${cn_prose_large} mt-5`}>
+                <ArticleSidebarBlock className={`${cn_prose} mt-5`}>
                     <blockquote>
                         <strong>NB</strong> Postgres has specific requirements for configuration parameters. Refer to <a href="https://www.postgresql.org/docs/current/config-setting.html">Chapter 20.1 of the official documentation</a>.
                     </blockquote>
                 </ArticleSidebarBlock>
-                <ArticleSectionContent className={`${cn_prose_large} mt-5`}>
+                <ArticleSectionContent className={`${cn_prose} mt-5`}>
                     <Codeblock
                         route={Route}
                         id="pg-rls-2"
