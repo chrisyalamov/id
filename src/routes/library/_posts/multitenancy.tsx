@@ -5,6 +5,7 @@ import { formatDate } from '../-format-date.ts'
 import { ArticleRoot, ArticleSectionContent, ArticleSidebarBlock, ArticleSidebarStickyBlock, cn_prose } from '@/components/editorial/article.tsx'
 import { Codeblock } from "@components/codeblock.tsx";
 import { BlockDivider } from "@components/divider.tsx";
+import { Callout } from '@/components/editorial/callout.tsx'
 
 export const Route = createFileRoute('/library/_posts/multitenancy')({
     component: RouteComponent,
@@ -85,7 +86,7 @@ const resultsWithTenantFilter = await withTenantFilter(
 )`.trim()
                         }
                     />
-                    <blockquote>
+                    <Callout>
                         Interesting alternative approach proposed by @<a href="https://github.com/rsslldnphy">rsslldnphy</a>: create a function which returns a table with an applied filter:
 
                         <Codeblock
@@ -110,13 +111,13 @@ const people = await db
     );
                                 `.trim()}
                             containerProps={{
-                                className: "-mx-(--housing-padding-x) rounded-none! px-(--housing-padding-x)"
+                                style: { backgroundColor: "transparent"}
                             }}
                         />
                         <p>
                             See <a href="https://github.com/drizzle-team/drizzle-orm/discussions/1539#discussioncomment-7639604">this discussion on GitHub</a> for context.
                         </p>
-                    </blockquote>
+                    </Callout>
                     <p>
                         <strong>Example 4:</strong> Using Entity Framework Global Filters (.NET)</p>
                     <Codeblock

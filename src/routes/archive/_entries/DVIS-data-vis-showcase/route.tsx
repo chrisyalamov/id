@@ -9,7 +9,7 @@ import vid_bar from "./bar.mp4"
 import vid_hypothesis from "./hypothesis.mp4"
 import { FiArrowUp } from 'react-icons/fi'
 
-export const Route = createFileRoute('/archive/_items/DVIS-data-vis-showcase')({
+export const Route = createFileRoute('/archive/_entries/DVIS-data-vis-showcase')({
     component: RouteComponent,
 })
 

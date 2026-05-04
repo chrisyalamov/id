@@ -9,7 +9,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view'
 import img_flow from './flow.png'
 import { Footer } from '@components/footer.tsx'
 
-export const Route = createFileRoute('/archive/_items/RCLA-studio-process-automation')({
+export const Route = createFileRoute('/archive/_entries/RCLA-studio-process-automation')({
     component: RouteComponent,
 })
 

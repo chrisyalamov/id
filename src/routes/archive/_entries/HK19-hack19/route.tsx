@@ -11,7 +11,7 @@ import img_interview from "./Interviews.png"
 import img_vacancies from "./Vacancies.png"
 import { ShotContainer } from '@components/showcase.tsx'
 
-export const Route = createFileRoute('/archive/_items/HK19-hack19')({
+export const Route = createFileRoute('/archive/_entries/HK19-hack19')({
     component: RouteComponent,
 })
 

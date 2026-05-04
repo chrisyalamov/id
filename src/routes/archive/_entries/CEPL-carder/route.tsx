@@ -26,8 +26,9 @@ import img_screenshot_3 from './screenshot3.png'
 import img_screenshot_4 from './screenshot4.png'
 import img_screenshot_5 from './screenshot5.png'
 import img_screenshot_6 from './screenshot6.png'
+import { Subtitle } from '@/components/editorial/headings'
 
-export const Route = createFileRoute('/archive/_items/CEPL-carder')({
+export const Route = createFileRoute('/archive/_entries/CEPL-carder')({
     component: RouteComponent,
 
 })
@@ -37,9 +38,9 @@ const Introduction = <>
         Introduction
     </ArticleSectionHeading>
     <ArticleSectionContent className={cn_prose}>
-        <h3 className='leading-tight mb-10 text-xl font-semibold text-left'>
+        <Subtitle>
             Carder is an audience engagement platform for events and conferences which supports multi-tenancy and is designed with a cloud-first architecture.
-        </h3>
+        </Subtitle>
         <p>
             I built Carder as part of a university project. The assignment had two parts: to come up with an idea for a digital business, and analyse its viability; and to develop (part of) the digital product or platform.
             My primary focus was on developing the licensing and billing system, and underlying services such as events and attendee management, the multi-tenant architecture of the platform, authentication, and integrations with a payments processor.

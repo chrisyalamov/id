@@ -97,7 +97,7 @@
 
 @utility font-mode-display {
   font-variation-settings: "opsz"32;
-  letter-spacing: calc(0.01em + 0.2px);
+  letter-spacing: calc(0.25px);
 }
 
 :root {

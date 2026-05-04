@@ -10,7 +10,7 @@ import img_client from './IWM Clients.png'
 import img_dashboard from './IWM Dashboard.png'
 import img_marketview from './IWM MarketView.png'
 
-export const Route = createFileRoute('/archive/_items/CRSS-credit-suisse-osa')({
+export const Route = createFileRoute('/archive/_entries/CRSS-credit-suisse-osa')({
     component: RouteComponent,
 })
 

@@ -20,7 +20,7 @@ import img_layout from "./Layout.png";
 import img_tutorial from "./Tutorial.png";
 import { Footer } from "@components/footer.tsx";
 
-export const Route = createFileRoute("/archive/_items/ALRN-aileron")({
+export const Route = createFileRoute("/archive/_entries/ALRN-aileron")({
   component: RouteComponent,
 });
 

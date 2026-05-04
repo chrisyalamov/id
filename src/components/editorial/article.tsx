@@ -68,7 +68,8 @@ export const ArticleFullSpread = ({ children, className, ...props }: HTMLProps<H
 
 const getProseClassName = (size: "base" | "lg") => `
     prose ${size === "base" ? "prose-sm text-[14px]" : "prose-base text-[16px]"} prose-neutral dark:prose-invert 
-    leading-[1.4]
+    font-[360]
+    leading-[1.45]
     text-black
     dark:text-neutral-300
     max-w-none 

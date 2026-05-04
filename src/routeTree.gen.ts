@@ -22,26 +22,19 @@ import { Route as SkillsEnterpriseRouteImport } from './routes/skills/enterprise
 import { Route as SkillsDesignRouteImport } from './routes/skills/design'
 import { Route as SkillsDataRouteImport } from './routes/skills/data'
 import { Route as ProfileAcademicRouteImport } from './routes/profile/academic'
-<<<<<<< HEAD
-import { Route as LibrarySchemaManagementRouteImport } from './routes/library/schema-management'
-=======
 import { Route as LibraryUntrustedCodeExecRouteImport } from './routes/library/untrusted-code-exec'
->>>>>>> dev
 import { Route as ExperimentalBook2RouteImport } from './routes/experimental/book2'
 import { Route as ExperimentalBook1RouteImport } from './routes/experimental/book1'
 import { Route as LibraryIndexRouteRouteImport } from './routes/library/index/route'
 import { Route as LibraryPostsUntrustedCodeExecutionRouteImport } from './routes/library/_posts/untrusted-code-execution'
-<<<<<<< HEAD
-=======
 import { Route as LibraryPostsSchemaManagementRouteImport } from './routes/library/_posts/schema-management'
->>>>>>> dev
 import { Route as LibraryPostsMultitenancyRouteImport } from './routes/library/_posts/multitenancy'
-import { Route as ArchiveItemsRCLAStudioProcessAutomationRouteRouteImport } from './routes/archive/_items/RCLA-studio-process-automation/route'
-import { Route as ArchiveItemsHK19Hack19RouteRouteImport } from './routes/archive/_items/HK19-hack19/route'
-import { Route as ArchiveItemsDVISDataVisShowcaseRouteRouteImport } from './routes/archive/_items/DVIS-data-vis-showcase/route'
-import { Route as ArchiveItemsCRSSCreditSuisseOsaRouteRouteImport } from './routes/archive/_items/CRSS-credit-suisse-osa/route'
-import { Route as ArchiveItemsCEPLCarderRouteRouteImport } from './routes/archive/_items/CEPL-carder/route'
-import { Route as ArchiveItemsALRNAileronRouteRouteImport } from './routes/archive/_items/ALRN-aileron/route'
+import { Route as ArchiveEntriesRCLAStudioProcessAutomationRouteRouteImport } from './routes/archive/_entries/RCLA-studio-process-automation/route'
+import { Route as ArchiveEntriesHK19Hack19RouteRouteImport } from './routes/archive/_entries/HK19-hack19/route'
+import { Route as ArchiveEntriesDVISDataVisShowcaseRouteRouteImport } from './routes/archive/_entries/DVIS-data-vis-showcase/route'
+import { Route as ArchiveEntriesCRSSCreditSuisseOsaRouteRouteImport } from './routes/archive/_entries/CRSS-credit-suisse-osa/route'
+import { Route as ArchiveEntriesCEPLCarderRouteRouteImport } from './routes/archive/_entries/CEPL-carder/route'
+import { Route as ArchiveEntriesALRNAileronRouteRouteImport } from './routes/archive/_entries/ALRN-aileron/route'
 
 const ShowcaseRoute = ShowcaseRouteImport.update({
   id: '/showcase',
@@ -108,20 +101,12 @@ const ProfileAcademicRoute = ProfileAcademicRouteImport.update({
   path: '/profile/academic',
   getParentRoute: () => rootRouteImport,
 } as any)
-<<<<<<< HEAD
-const LibrarySchemaManagementRoute = LibrarySchemaManagementRouteImport.update({
-  id: '/library/schema-management',
-  path: '/library/schema-management',
-  getParentRoute: () => rootRouteImport,
-} as any)
-=======
 const LibraryUntrustedCodeExecRoute =
   LibraryUntrustedCodeExecRouteImport.update({
     id: '/library/untrusted-code-exec',
     path: '/library/untrusted-code-exec',
     getParentRoute: () => rootRouteImport,
   } as any)
->>>>>>> dev
 const ExperimentalBook2Route = ExperimentalBook2RouteImport.update({
   id: '/experimental/book2',
   path: '/experimental/book2',
@@ -143,54 +128,51 @@ const LibraryPostsUntrustedCodeExecutionRoute =
     path: '/library/untrusted-code-execution',
     getParentRoute: () => rootRouteImport,
   } as any)
-<<<<<<< HEAD
-=======
 const LibraryPostsSchemaManagementRoute =
   LibraryPostsSchemaManagementRouteImport.update({
     id: '/library/_posts/schema-management',
     path: '/library/schema-management',
     getParentRoute: () => rootRouteImport,
   } as any)
->>>>>>> dev
 const LibraryPostsMultitenancyRoute =
   LibraryPostsMultitenancyRouteImport.update({
     id: '/library/_posts/multitenancy',
     path: '/library/multitenancy',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ArchiveItemsRCLAStudioProcessAutomationRouteRoute =
-  ArchiveItemsRCLAStudioProcessAutomationRouteRouteImport.update({
-    id: '/archive/_items/RCLA-studio-process-automation',
+const ArchiveEntriesRCLAStudioProcessAutomationRouteRoute =
+  ArchiveEntriesRCLAStudioProcessAutomationRouteRouteImport.update({
+    id: '/archive/_entries/RCLA-studio-process-automation',
     path: '/archive/RCLA-studio-process-automation',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ArchiveItemsHK19Hack19RouteRoute =
-  ArchiveItemsHK19Hack19RouteRouteImport.update({
-    id: '/archive/_items/HK19-hack19',
+const ArchiveEntriesHK19Hack19RouteRoute =
+  ArchiveEntriesHK19Hack19RouteRouteImport.update({
+    id: '/archive/_entries/HK19-hack19',
     path: '/archive/HK19-hack19',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ArchiveItemsDVISDataVisShowcaseRouteRoute =
-  ArchiveItemsDVISDataVisShowcaseRouteRouteImport.update({
-    id: '/archive/_items/DVIS-data-vis-showcase',
+const ArchiveEntriesDVISDataVisShowcaseRouteRoute =
+  ArchiveEntriesDVISDataVisShowcaseRouteRouteImport.update({
+    id: '/archive/_entries/DVIS-data-vis-showcase',
     path: '/archive/DVIS-data-vis-showcase',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ArchiveItemsCRSSCreditSuisseOsaRouteRoute =
-  ArchiveItemsCRSSCreditSuisseOsaRouteRouteImport.update({
-    id: '/archive/_items/CRSS-credit-suisse-osa',
+const ArchiveEntriesCRSSCreditSuisseOsaRouteRoute =
+  ArchiveEntriesCRSSCreditSuisseOsaRouteRouteImport.update({
+    id: '/archive/_entries/CRSS-credit-suisse-osa',
     path: '/archive/CRSS-credit-suisse-osa',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ArchiveItemsCEPLCarderRouteRoute =
-  ArchiveItemsCEPLCarderRouteRouteImport.update({
-    id: '/archive/_items/CEPL-carder',
+const ArchiveEntriesCEPLCarderRouteRoute =
+  ArchiveEntriesCEPLCarderRouteRouteImport.update({
+    id: '/archive/_entries/CEPL-carder',
     path: '/archive/CEPL-carder',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ArchiveItemsALRNAileronRouteRoute =
-  ArchiveItemsALRNAileronRouteRouteImport.update({
-    id: '/archive/_items/ALRN-aileron',
+const ArchiveEntriesALRNAileronRouteRoute =
+  ArchiveEntriesALRNAileronRouteRouteImport.update({
+    id: '/archive/_entries/ALRN-aileron',
     path: '/archive/ALRN-aileron',
     getParentRoute: () => rootRouteImport,
   } as any)
@@ -203,11 +185,7 @@ export interface FileRoutesByFullPath {
   '/library/': typeof LibraryIndexRouteRoute
   '/experimental/book1': typeof ExperimentalBook1Route
   '/experimental/book2': typeof ExperimentalBook2Route
-<<<<<<< HEAD
-  '/library/schema-management': typeof LibrarySchemaManagementRoute
-=======
   '/library/untrusted-code-exec': typeof LibraryUntrustedCodeExecRoute
->>>>>>> dev
   '/profile/academic': typeof ProfileAcademicRoute
   '/skills/data': typeof SkillsDataRoute
   '/skills/design': typeof SkillsDesignRoute
@@ -217,17 +195,14 @@ export interface FileRoutesByFullPath {
   '/archive/': typeof ArchiveIndexRoute
   '/legal/': typeof LegalIndexRoute
   '/skills/': typeof SkillsIndexRoute
-  '/archive/ALRN-aileron': typeof ArchiveItemsALRNAileronRouteRoute
-  '/archive/CEPL-carder': typeof ArchiveItemsCEPLCarderRouteRoute
-  '/archive/CRSS-credit-suisse-osa': typeof ArchiveItemsCRSSCreditSuisseOsaRouteRoute
-  '/archive/DVIS-data-vis-showcase': typeof ArchiveItemsDVISDataVisShowcaseRouteRoute
-  '/archive/HK19-hack19': typeof ArchiveItemsHK19Hack19RouteRoute
-  '/archive/RCLA-studio-process-automation': typeof ArchiveItemsRCLAStudioProcessAutomationRouteRoute
+  '/archive/ALRN-aileron': typeof ArchiveEntriesALRNAileronRouteRoute
+  '/archive/CEPL-carder': typeof ArchiveEntriesCEPLCarderRouteRoute
+  '/archive/CRSS-credit-suisse-osa': typeof ArchiveEntriesCRSSCreditSuisseOsaRouteRoute
+  '/archive/DVIS-data-vis-showcase': typeof ArchiveEntriesDVISDataVisShowcaseRouteRoute
+  '/archive/HK19-hack19': typeof ArchiveEntriesHK19Hack19RouteRoute
+  '/archive/RCLA-studio-process-automation': typeof ArchiveEntriesRCLAStudioProcessAutomationRouteRoute
   '/library/multitenancy': typeof LibraryPostsMultitenancyRoute
-<<<<<<< HEAD
-=======
   '/library/schema-management': typeof LibraryPostsSchemaManagementRoute
->>>>>>> dev
   '/library/untrusted-code-execution': typeof LibraryPostsUntrustedCodeExecutionRoute
 }
 export interface FileRoutesByTo {
@@ -237,11 +212,7 @@ export interface FileRoutesByTo {
   '/library': typeof LibraryIndexRouteRoute
   '/experimental/book1': typeof ExperimentalBook1Route
   '/experimental/book2': typeof ExperimentalBook2Route
-<<<<<<< HEAD
-  '/library/schema-management': typeof LibrarySchemaManagementRoute
-=======
   '/library/untrusted-code-exec': typeof LibraryUntrustedCodeExecRoute
->>>>>>> dev
   '/profile/academic': typeof ProfileAcademicRoute
   '/skills/data': typeof SkillsDataRoute
   '/skills/design': typeof SkillsDesignRoute
@@ -251,17 +222,14 @@ export interface FileRoutesByTo {
   '/archive': typeof ArchiveIndexRoute
   '/legal': typeof LegalIndexRoute
   '/skills': typeof SkillsIndexRoute
-  '/archive/ALRN-aileron': typeof ArchiveItemsALRNAileronRouteRoute
-  '/archive/CEPL-carder': typeof ArchiveItemsCEPLCarderRouteRoute
-  '/archive/CRSS-credit-suisse-osa': typeof ArchiveItemsCRSSCreditSuisseOsaRouteRoute
-  '/archive/DVIS-data-vis-showcase': typeof ArchiveItemsDVISDataVisShowcaseRouteRoute
-  '/archive/HK19-hack19': typeof ArchiveItemsHK19Hack19RouteRoute
-  '/archive/RCLA-studio-process-automation': typeof ArchiveItemsRCLAStudioProcessAutomationRouteRoute
+  '/archive/ALRN-aileron': typeof ArchiveEntriesALRNAileronRouteRoute
+  '/archive/CEPL-carder': typeof ArchiveEntriesCEPLCarderRouteRoute
+  '/archive/CRSS-credit-suisse-osa': typeof ArchiveEntriesCRSSCreditSuisseOsaRouteRoute
+  '/archive/DVIS-data-vis-showcase': typeof ArchiveEntriesDVISDataVisShowcaseRouteRoute
+  '/archive/HK19-hack19': typeof ArchiveEntriesHK19Hack19RouteRoute
+  '/archive/RCLA-studio-process-automation': typeof ArchiveEntriesRCLAStudioProcessAutomationRouteRoute
   '/library/multitenancy': typeof LibraryPostsMultitenancyRoute
-<<<<<<< HEAD
-=======
   '/library/schema-management': typeof LibraryPostsSchemaManagementRoute
->>>>>>> dev
   '/library/untrusted-code-execution': typeof LibraryPostsUntrustedCodeExecutionRoute
 }
 export interface FileRoutesById {
@@ -273,11 +241,7 @@ export interface FileRoutesById {
   '/library/': typeof LibraryIndexRouteRoute
   '/experimental/book1': typeof ExperimentalBook1Route
   '/experimental/book2': typeof ExperimentalBook2Route
-<<<<<<< HEAD
-  '/library/schema-management': typeof LibrarySchemaManagementRoute
-=======
   '/library/untrusted-code-exec': typeof LibraryUntrustedCodeExecRoute
->>>>>>> dev
   '/profile/academic': typeof ProfileAcademicRoute
   '/skills/data': typeof SkillsDataRoute
   '/skills/design': typeof SkillsDesignRoute
@@ -287,17 +251,14 @@ export interface FileRoutesById {
   '/archive/': typeof ArchiveIndexRoute
   '/legal/': typeof LegalIndexRoute
   '/skills/': typeof SkillsIndexRoute
-  '/archive/_items/ALRN-aileron': typeof ArchiveItemsALRNAileronRouteRoute
-  '/archive/_items/CEPL-carder': typeof ArchiveItemsCEPLCarderRouteRoute
-  '/archive/_items/CRSS-credit-suisse-osa': typeof ArchiveItemsCRSSCreditSuisseOsaRouteRoute
-  '/archive/_items/DVIS-data-vis-showcase': typeof ArchiveItemsDVISDataVisShowcaseRouteRoute
-  '/archive/_items/HK19-hack19': typeof ArchiveItemsHK19Hack19RouteRoute
-  '/archive/_items/RCLA-studio-process-automation': typeof ArchiveItemsRCLAStudioProcessAutomationRouteRoute
+  '/archive/_entries/ALRN-aileron': typeof ArchiveEntriesALRNAileronRouteRoute
+  '/archive/_entries/CEPL-carder': typeof ArchiveEntriesCEPLCarderRouteRoute
+  '/archive/_entries/CRSS-credit-suisse-osa': typeof ArchiveEntriesCRSSCreditSuisseOsaRouteRoute
+  '/archive/_entries/DVIS-data-vis-showcase': typeof ArchiveEntriesDVISDataVisShowcaseRouteRoute
+  '/archive/_entries/HK19-hack19': typeof ArchiveEntriesHK19Hack19RouteRoute
+  '/archive/_entries/RCLA-studio-process-automation': typeof ArchiveEntriesRCLAStudioProcessAutomationRouteRoute
   '/library/_posts/multitenancy': typeof LibraryPostsMultitenancyRoute
-<<<<<<< HEAD
-=======
   '/library/_posts/schema-management': typeof LibraryPostsSchemaManagementRoute
->>>>>>> dev
   '/library/_posts/untrusted-code-execution': typeof LibraryPostsUntrustedCodeExecutionRoute
 }
 export interface FileRouteTypes {
@@ -310,11 +271,7 @@ export interface FileRouteTypes {
     | '/library/'
     | '/experimental/book1'
     | '/experimental/book2'
-<<<<<<< HEAD
-    | '/library/schema-management'
-=======
     | '/library/untrusted-code-exec'
->>>>>>> dev
     | '/profile/academic'
     | '/skills/data'
     | '/skills/design'
@@ -331,10 +288,7 @@ export interface FileRouteTypes {
     | '/archive/HK19-hack19'
     | '/archive/RCLA-studio-process-automation'
     | '/library/multitenancy'
-<<<<<<< HEAD
-=======
     | '/library/schema-management'
->>>>>>> dev
     | '/library/untrusted-code-execution'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -344,11 +298,7 @@ export interface FileRouteTypes {
     | '/library'
     | '/experimental/book1'
     | '/experimental/book2'
-<<<<<<< HEAD
-    | '/library/schema-management'
-=======
     | '/library/untrusted-code-exec'
->>>>>>> dev
     | '/profile/academic'
     | '/skills/data'
     | '/skills/design'
@@ -365,10 +315,7 @@ export interface FileRouteTypes {
     | '/archive/HK19-hack19'
     | '/archive/RCLA-studio-process-automation'
     | '/library/multitenancy'
-<<<<<<< HEAD
-=======
     | '/library/schema-management'
->>>>>>> dev
     | '/library/untrusted-code-execution'
   id:
     | '__root__'
@@ -379,11 +326,7 @@ export interface FileRouteTypes {
     | '/library/'
     | '/experimental/book1'
     | '/experimental/book2'
-<<<<<<< HEAD
-    | '/library/schema-management'
-=======
     | '/library/untrusted-code-exec'
->>>>>>> dev
     | '/profile/academic'
     | '/skills/data'
     | '/skills/design'
@@ -393,17 +336,14 @@ export interface FileRouteTypes {
     | '/archive/'
     | '/legal/'
     | '/skills/'
-    | '/archive/_items/ALRN-aileron'
-    | '/archive/_items/CEPL-carder'
-    | '/archive/_items/CRSS-credit-suisse-osa'
-    | '/archive/_items/DVIS-data-vis-showcase'
-    | '/archive/_items/HK19-hack19'
-    | '/archive/_items/RCLA-studio-process-automation'
+    | '/archive/_entries/ALRN-aileron'
+    | '/archive/_entries/CEPL-carder'
+    | '/archive/_entries/CRSS-credit-suisse-osa'
+    | '/archive/_entries/DVIS-data-vis-showcase'
+    | '/archive/_entries/HK19-hack19'
+    | '/archive/_entries/RCLA-studio-process-automation'
     | '/library/_posts/multitenancy'
-<<<<<<< HEAD
-=======
     | '/library/_posts/schema-management'
->>>>>>> dev
     | '/library/_posts/untrusted-code-execution'
   fileRoutesById: FileRoutesById
 }
@@ -415,26 +355,19 @@ export interface RootRouteChildren {
   LibraryIndexRouteRoute: typeof LibraryIndexRouteRoute
   ExperimentalBook1Route: typeof ExperimentalBook1Route
   ExperimentalBook2Route: typeof ExperimentalBook2Route
-<<<<<<< HEAD
-  LibrarySchemaManagementRoute: typeof LibrarySchemaManagementRoute
-=======
   LibraryUntrustedCodeExecRoute: typeof LibraryUntrustedCodeExecRoute
->>>>>>> dev
   ProfileAcademicRoute: typeof ProfileAcademicRoute
   AboutIndexRoute: typeof AboutIndexRoute
   ArchiveIndexRoute: typeof ArchiveIndexRoute
   LegalIndexRoute: typeof LegalIndexRoute
-  ArchiveItemsALRNAileronRouteRoute: typeof ArchiveItemsALRNAileronRouteRoute
-  ArchiveItemsCEPLCarderRouteRoute: typeof ArchiveItemsCEPLCarderRouteRoute
-  ArchiveItemsCRSSCreditSuisseOsaRouteRoute: typeof ArchiveItemsCRSSCreditSuisseOsaRouteRoute
-  ArchiveItemsDVISDataVisShowcaseRouteRoute: typeof ArchiveItemsDVISDataVisShowcaseRouteRoute
-  ArchiveItemsHK19Hack19RouteRoute: typeof ArchiveItemsHK19Hack19RouteRoute
-  ArchiveItemsRCLAStudioProcessAutomationRouteRoute: typeof ArchiveItemsRCLAStudioProcessAutomationRouteRoute
+  ArchiveEntriesALRNAileronRouteRoute: typeof ArchiveEntriesALRNAileronRouteRoute
+  ArchiveEntriesCEPLCarderRouteRoute: typeof ArchiveEntriesCEPLCarderRouteRoute
+  ArchiveEntriesCRSSCreditSuisseOsaRouteRoute: typeof ArchiveEntriesCRSSCreditSuisseOsaRouteRoute
+  ArchiveEntriesDVISDataVisShowcaseRouteRoute: typeof ArchiveEntriesDVISDataVisShowcaseRouteRoute
+  ArchiveEntriesHK19Hack19RouteRoute: typeof ArchiveEntriesHK19Hack19RouteRoute
+  ArchiveEntriesRCLAStudioProcessAutomationRouteRoute: typeof ArchiveEntriesRCLAStudioProcessAutomationRouteRoute
   LibraryPostsMultitenancyRoute: typeof LibraryPostsMultitenancyRoute
-<<<<<<< HEAD
-=======
   LibraryPostsSchemaManagementRoute: typeof LibraryPostsSchemaManagementRoute
->>>>>>> dev
   LibraryPostsUntrustedCodeExecutionRoute: typeof LibraryPostsUntrustedCodeExecutionRoute
 }
 
@@ -531,19 +464,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileAcademicRouteImport
       parentRoute: typeof rootRouteImport
     }
-<<<<<<< HEAD
-    '/library/schema-management': {
-      id: '/library/schema-management'
-      path: '/library/schema-management'
-      fullPath: '/library/schema-management'
-      preLoaderRoute: typeof LibrarySchemaManagementRouteImport
-=======
     '/library/untrusted-code-exec': {
       id: '/library/untrusted-code-exec'
       path: '/library/untrusted-code-exec'
       fullPath: '/library/untrusted-code-exec'
       preLoaderRoute: typeof LibraryUntrustedCodeExecRouteImport
->>>>>>> dev
       parentRoute: typeof rootRouteImport
     }
     '/experimental/book2': {
@@ -574,8 +499,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LibraryPostsUntrustedCodeExecutionRouteImport
       parentRoute: typeof rootRouteImport
     }
-<<<<<<< HEAD
-=======
     '/library/_posts/schema-management': {
       id: '/library/_posts/schema-management'
       path: '/library/schema-management'
@@ -583,7 +506,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LibraryPostsSchemaManagementRouteImport
       parentRoute: typeof rootRouteImport
     }
->>>>>>> dev
     '/library/_posts/multitenancy': {
       id: '/library/_posts/multitenancy'
       path: '/library/multitenancy'
@@ -591,46 +513,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LibraryPostsMultitenancyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/archive/_items/RCLA-studio-process-automation': {
-      id: '/archive/_items/RCLA-studio-process-automation'
+    '/archive/_entries/RCLA-studio-process-automation': {
+      id: '/archive/_entries/RCLA-studio-process-automation'
       path: '/archive/RCLA-studio-process-automation'
       fullPath: '/archive/RCLA-studio-process-automation'
-      preLoaderRoute: typeof ArchiveItemsRCLAStudioProcessAutomationRouteRouteImport
+      preLoaderRoute: typeof ArchiveEntriesRCLAStudioProcessAutomationRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/archive/_items/HK19-hack19': {
-      id: '/archive/_items/HK19-hack19'
+    '/archive/_entries/HK19-hack19': {
+      id: '/archive/_entries/HK19-hack19'
       path: '/archive/HK19-hack19'
       fullPath: '/archive/HK19-hack19'
-      preLoaderRoute: typeof ArchiveItemsHK19Hack19RouteRouteImport
+      preLoaderRoute: typeof ArchiveEntriesHK19Hack19RouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/archive/_items/DVIS-data-vis-showcase': {
-      id: '/archive/_items/DVIS-data-vis-showcase'
+    '/archive/_entries/DVIS-data-vis-showcase': {
+      id: '/archive/_entries/DVIS-data-vis-showcase'
       path: '/archive/DVIS-data-vis-showcase'
       fullPath: '/archive/DVIS-data-vis-showcase'
-      preLoaderRoute: typeof ArchiveItemsDVISDataVisShowcaseRouteRouteImport
+      preLoaderRoute: typeof ArchiveEntriesDVISDataVisShowcaseRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/archive/_items/CRSS-credit-suisse-osa': {
-      id: '/archive/_items/CRSS-credit-suisse-osa'
+    '/archive/_entries/CRSS-credit-suisse-osa': {
+      id: '/archive/_entries/CRSS-credit-suisse-osa'
       path: '/archive/CRSS-credit-suisse-osa'
       fullPath: '/archive/CRSS-credit-suisse-osa'
-      preLoaderRoute: typeof ArchiveItemsCRSSCreditSuisseOsaRouteRouteImport
+      preLoaderRoute: typeof ArchiveEntriesCRSSCreditSuisseOsaRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/archive/_items/CEPL-carder': {
-      id: '/archive/_items/CEPL-carder'
+    '/archive/_entries/CEPL-carder': {
+      id: '/archive/_entries/CEPL-carder'
       path: '/archive/CEPL-carder'
       fullPath: '/archive/CEPL-carder'
-      preLoaderRoute: typeof ArchiveItemsCEPLCarderRouteRouteImport
+      preLoaderRoute: typeof ArchiveEntriesCEPLCarderRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/archive/_items/ALRN-aileron': {
-      id: '/archive/_items/ALRN-aileron'
+    '/archive/_entries/ALRN-aileron': {
+      id: '/archive/_entries/ALRN-aileron'
       path: '/archive/ALRN-aileron'
       fullPath: '/archive/ALRN-aileron'
-      preLoaderRoute: typeof ArchiveItemsALRNAileronRouteRouteImport
+      preLoaderRoute: typeof ArchiveEntriesALRNAileronRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -664,29 +586,22 @@ const rootRouteChildren: RootRouteChildren = {
   LibraryIndexRouteRoute: LibraryIndexRouteRoute,
   ExperimentalBook1Route: ExperimentalBook1Route,
   ExperimentalBook2Route: ExperimentalBook2Route,
-<<<<<<< HEAD
-  LibrarySchemaManagementRoute: LibrarySchemaManagementRoute,
-=======
   LibraryUntrustedCodeExecRoute: LibraryUntrustedCodeExecRoute,
->>>>>>> dev
   ProfileAcademicRoute: ProfileAcademicRoute,
   AboutIndexRoute: AboutIndexRoute,
   ArchiveIndexRoute: ArchiveIndexRoute,
   LegalIndexRoute: LegalIndexRoute,
-  ArchiveItemsALRNAileronRouteRoute: ArchiveItemsALRNAileronRouteRoute,
-  ArchiveItemsCEPLCarderRouteRoute: ArchiveItemsCEPLCarderRouteRoute,
-  ArchiveItemsCRSSCreditSuisseOsaRouteRoute:
-    ArchiveItemsCRSSCreditSuisseOsaRouteRoute,
-  ArchiveItemsDVISDataVisShowcaseRouteRoute:
-    ArchiveItemsDVISDataVisShowcaseRouteRoute,
-  ArchiveItemsHK19Hack19RouteRoute: ArchiveItemsHK19Hack19RouteRoute,
-  ArchiveItemsRCLAStudioProcessAutomationRouteRoute:
-    ArchiveItemsRCLAStudioProcessAutomationRouteRoute,
+  ArchiveEntriesALRNAileronRouteRoute: ArchiveEntriesALRNAileronRouteRoute,
+  ArchiveEntriesCEPLCarderRouteRoute: ArchiveEntriesCEPLCarderRouteRoute,
+  ArchiveEntriesCRSSCreditSuisseOsaRouteRoute:
+    ArchiveEntriesCRSSCreditSuisseOsaRouteRoute,
+  ArchiveEntriesDVISDataVisShowcaseRouteRoute:
+    ArchiveEntriesDVISDataVisShowcaseRouteRoute,
+  ArchiveEntriesHK19Hack19RouteRoute: ArchiveEntriesHK19Hack19RouteRoute,
+  ArchiveEntriesRCLAStudioProcessAutomationRouteRoute:
+    ArchiveEntriesRCLAStudioProcessAutomationRouteRoute,
   LibraryPostsMultitenancyRoute: LibraryPostsMultitenancyRoute,
-<<<<<<< HEAD
-=======
   LibraryPostsSchemaManagementRoute: LibraryPostsSchemaManagementRoute,
->>>>>>> dev
   LibraryPostsUntrustedCodeExecutionRoute:
     LibraryPostsUntrustedCodeExecutionRoute,
 }
