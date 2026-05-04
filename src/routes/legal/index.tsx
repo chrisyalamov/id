@@ -1,4 +1,4 @@
-import { ArticleRoot, ArticleSectionContent, ArticleSectionHeading, cn_prose } from '@components/article.tsx'
+import { ArticleRoot, ArticleSectionContent, ArticleSectionHeading, cn_prose } from '@/components/editorial/article'
 import { Divider } from '@components/divider.tsx'
 import { Footer } from '@components/footer.tsx'
 import { SingleColumn } from '@layouts/single-column.tsx'

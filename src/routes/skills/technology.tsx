@@ -1,4 +1,4 @@
-import { cn_prose } from '@/components/article'
+import { cn_prose } from '@/components/editorial/article'
 import { SkillBadge, SkillBank } from '@/components/skills'
 import { createFileRoute } from '@tanstack/react-router'
 

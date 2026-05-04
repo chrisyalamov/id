@@ -2,7 +2,7 @@ import { Footer } from '@components/footer.tsx'
 import { SingleColumn } from '@layouts/single-column.tsx'
 import { createFileRoute } from '@tanstack/react-router'
 import { formatDate } from '../-format-date.ts'
-import { ArticleRoot, ArticleSectionContent, ArticleSidebarBlock, ArticleSidebarStickyBlock, cn_prose, cn_prose_large } from '@/components/article.tsx'
+import { ArticleRoot, ArticleSectionContent, ArticleSidebarBlock, ArticleSidebarStickyBlock, cn_prose } from '@/components/editorial/article.tsx'
 import { Codeblock } from "@components/codeblock.tsx";
 import { BlockDivider } from "@components/divider.tsx";
 

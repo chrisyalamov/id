@@ -5,7 +5,7 @@ import { HiMiniAcademicCap } from "react-icons/hi2"
 import { PropLine } from '../profile/academic.tsx'
 import { FiArrowUpRight, FiChevronRight } from 'react-icons/fi'
 import { Footer } from '@components/footer.tsx'
-import { ArticleRoot, ArticleSectionContent, ArticleSectionHeading, cn_prose } from "@components/article.tsx";
+import { ArticleRoot, ArticleSectionContent, ArticleSectionHeading, cn_prose } from "@/components/editorial/article.tsx";
 
 export const Route = createFileRoute('/about/')({
   component: RouteComponent,

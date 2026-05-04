@@ -11,4 +11,5 @@ dist
 .vscode
 .notes
 .output
+.dagger
 .wrangler

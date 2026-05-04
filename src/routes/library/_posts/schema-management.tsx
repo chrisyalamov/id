@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 
-export const Route = createFileRoute('/library/schema-management')({
+export const Route = createFileRoute('/library/_posts/schema-management')({
   component: RouteComponent,
 })
 

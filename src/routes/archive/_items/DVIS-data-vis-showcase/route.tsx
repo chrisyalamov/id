@@ -2,7 +2,7 @@ import { ProjectHeaderContainer } from '@components/project-header.tsx'
 import { ColumnLayout } from '@layouts/column.tsx'
 import { createFileRoute } from '@tanstack/react-router'
 import { ShotContainer } from '@components/showcase.tsx'
-import { ArticleFullSpread, ArticleRoot, ArticleSectionContent } from '@/components/article.tsx'
+import { ArticleFullSpread, ArticleRoot, ArticleSectionContent } from '@/components/editorial/article'
 import { PhotoProvider } from 'react-photo-view'
 import { Footer } from '@components/footer.tsx'
 import vid_bar from "./bar.mp4"

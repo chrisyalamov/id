@@ -13,7 +13,7 @@ import {
   ArticleSectionContent,
   ArticleSectionHeading,
   cn_prose,
-} from "@components/article.tsx";
+} from "@/components/editorial/article";
 import { Divider } from "@components/divider.tsx";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import img_layout from "./Layout.png";
