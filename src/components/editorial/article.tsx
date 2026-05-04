@@ -76,7 +76,7 @@ const getProseClassName = (size: "base" | "lg") => `
     subpixel-antialiased
     prose-headings:antialiased!
     
-    prose-strong:font-semibold
+    prose-strong:font-[550]
     prose-headings:not-first:mt-10
     prose-li:my-0 
     prose-a:active:opacity-40 prose-a:active:decoration-dotted 
