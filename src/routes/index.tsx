@@ -7,7 +7,7 @@ import { QuickLink } from "@components/homepage-quick-link.tsx";
 import { DirectionalArrow } from "@/icons/directional-arrow.tsx";
 import { Showcase } from "@components/showcase.tsx";
 import { SkillsDirectory } from "@components/skills.tsx";
-import { cn_prose } from "@components/article.tsx";
+import { cn_prose } from "@/components/editorial/article";
 
 export const Route = createFileRoute("/")({
   component: App,

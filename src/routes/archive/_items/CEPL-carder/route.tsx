@@ -1,4 +1,4 @@
-import { ArticleFullSpread, ArticleRoot, ArticleSectionContent, ArticleSectionHeading, cn_prose } from '@components/article.tsx'
+import { ArticleFullSpread, ArticleRoot, ArticleSectionContent, ArticleSectionHeading, cn_prose } from '@/components/editorial/article'
 import { DisclosureBlock, DisclosuresPanel } from '@components/disclosures.tsx'
 import { Divider } from '@components/divider.tsx'
 import { Footer } from '@components/footer.tsx'

@@ -1,12 +1,12 @@
 import { Footer } from '@components/footer.tsx'
 import { SingleColumn } from '@layouts/single-column.tsx'
 import { createFileRoute } from '@tanstack/react-router'
-import { formatDate } from './-format-date.ts'
-import { ArticleRoot, ArticleSectionContent, ArticleSidebarStickyBlock, cn_prose_large } from '@/components/article.tsx'
+import { formatDate } from '../-format-date.ts'
+import { ArticleRoot, ArticleSectionContent, ArticleSidebarStickyBlock, cn_prose_large } from '@/components/editorial/article.tsx'
 import { Codeblock } from "@components/codeblock.tsx";
 import { BlockDivider } from "@components/divider.tsx";
 
-export const Route = createFileRoute('/library/multitenancy')({
+export const Route = createFileRoute('/library/_posts/multitenancy')({
     component: RouteComponent,
 })
 

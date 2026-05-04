@@ -1,4 +1,4 @@
-import { ArticleFullSpread, ArticleRoot, ArticleSectionContent, cn_prose } from '@components/article.tsx'
+import { ArticleFullSpread, ArticleRoot, ArticleSectionContent, cn_prose } from '@/components/editorial/article'
 import { DisclosureBlock, DisclosuresPanel } from '@components/disclosures.tsx'
 import { BasicPropertyBlock, MRZPropertyBlock } from '@components/project-details.tsx'
 import { ProjectHeaderContainer } from '@components/project-header.tsx'

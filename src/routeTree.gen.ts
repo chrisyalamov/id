@@ -23,11 +23,12 @@ import { Route as SkillsDesignRouteImport } from './routes/skills/design'
 import { Route as SkillsDataRouteImport } from './routes/skills/data'
 import { Route as ProfileAcademicRouteImport } from './routes/profile/academic'
 import { Route as LibraryUntrustedCodeExecRouteImport } from './routes/library/untrusted-code-exec'
-import { Route as LibrarySchemaManagementRouteImport } from './routes/library/schema-management'
-import { Route as LibraryMultitenancyRouteImport } from './routes/library/multitenancy'
 import { Route as ExperimentalBook2RouteImport } from './routes/experimental/book2'
 import { Route as ExperimentalBook1RouteImport } from './routes/experimental/book1'
 import { Route as LibraryIndexRouteRouteImport } from './routes/library/index/route'
+import { Route as LibraryPostsUntrustedCodeExecutionRouteImport } from './routes/library/_posts/untrusted-code-execution'
+import { Route as LibraryPostsSchemaManagementRouteImport } from './routes/library/_posts/schema-management'
+import { Route as LibraryPostsMultitenancyRouteImport } from './routes/library/_posts/multitenancy'
 import { Route as ArchiveItemsRCLAStudioProcessAutomationRouteRouteImport } from './routes/archive/_items/RCLA-studio-process-automation/route'
 import { Route as ArchiveItemsHK19Hack19RouteRouteImport } from './routes/archive/_items/HK19-hack19/route'
 import { Route as ArchiveItemsDVISDataVisShowcaseRouteRouteImport } from './routes/archive/_items/DVIS-data-vis-showcase/route'
@@ -106,16 +107,6 @@ const LibraryUntrustedCodeExecRoute =
     path: '/library/untrusted-code-exec',
     getParentRoute: () => rootRouteImport,
   } as any)
-const LibrarySchemaManagementRoute = LibrarySchemaManagementRouteImport.update({
-  id: '/library/schema-management',
-  path: '/library/schema-management',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LibraryMultitenancyRoute = LibraryMultitenancyRouteImport.update({
-  id: '/library/multitenancy',
-  path: '/library/multitenancy',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ExperimentalBook2Route = ExperimentalBook2RouteImport.update({
   id: '/experimental/book2',
   path: '/experimental/book2',
@@ -131,6 +122,24 @@ const LibraryIndexRouteRoute = LibraryIndexRouteRouteImport.update({
   path: '/library',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LibraryPostsUntrustedCodeExecutionRoute =
+  LibraryPostsUntrustedCodeExecutionRouteImport.update({
+    id: '/library/_posts/untrusted-code-execution',
+    path: '/library/untrusted-code-execution',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LibraryPostsSchemaManagementRoute =
+  LibraryPostsSchemaManagementRouteImport.update({
+    id: '/library/_posts/schema-management',
+    path: '/library/schema-management',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LibraryPostsMultitenancyRoute =
+  LibraryPostsMultitenancyRouteImport.update({
+    id: '/library/_posts/multitenancy',
+    path: '/library/multitenancy',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ArchiveItemsRCLAStudioProcessAutomationRouteRoute =
   ArchiveItemsRCLAStudioProcessAutomationRouteRouteImport.update({
     id: '/archive/_items/RCLA-studio-process-automation',
@@ -176,8 +185,6 @@ export interface FileRoutesByFullPath {
   '/library/': typeof LibraryIndexRouteRoute
   '/experimental/book1': typeof ExperimentalBook1Route
   '/experimental/book2': typeof ExperimentalBook2Route
-  '/library/multitenancy': typeof LibraryMultitenancyRoute
-  '/library/schema-management': typeof LibrarySchemaManagementRoute
   '/library/untrusted-code-exec': typeof LibraryUntrustedCodeExecRoute
   '/profile/academic': typeof ProfileAcademicRoute
   '/skills/data': typeof SkillsDataRoute
@@ -194,6 +201,9 @@ export interface FileRoutesByFullPath {
   '/archive/DVIS-data-vis-showcase': typeof ArchiveItemsDVISDataVisShowcaseRouteRoute
   '/archive/HK19-hack19': typeof ArchiveItemsHK19Hack19RouteRoute
   '/archive/RCLA-studio-process-automation': typeof ArchiveItemsRCLAStudioProcessAutomationRouteRoute
+  '/library/multitenancy': typeof LibraryPostsMultitenancyRoute
+  '/library/schema-management': typeof LibraryPostsSchemaManagementRoute
+  '/library/untrusted-code-execution': typeof LibraryPostsUntrustedCodeExecutionRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -202,8 +212,6 @@ export interface FileRoutesByTo {
   '/library': typeof LibraryIndexRouteRoute
   '/experimental/book1': typeof ExperimentalBook1Route
   '/experimental/book2': typeof ExperimentalBook2Route
-  '/library/multitenancy': typeof LibraryMultitenancyRoute
-  '/library/schema-management': typeof LibrarySchemaManagementRoute
   '/library/untrusted-code-exec': typeof LibraryUntrustedCodeExecRoute
   '/profile/academic': typeof ProfileAcademicRoute
   '/skills/data': typeof SkillsDataRoute
@@ -220,6 +228,9 @@ export interface FileRoutesByTo {
   '/archive/DVIS-data-vis-showcase': typeof ArchiveItemsDVISDataVisShowcaseRouteRoute
   '/archive/HK19-hack19': typeof ArchiveItemsHK19Hack19RouteRoute
   '/archive/RCLA-studio-process-automation': typeof ArchiveItemsRCLAStudioProcessAutomationRouteRoute
+  '/library/multitenancy': typeof LibraryPostsMultitenancyRoute
+  '/library/schema-management': typeof LibraryPostsSchemaManagementRoute
+  '/library/untrusted-code-execution': typeof LibraryPostsUntrustedCodeExecutionRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -230,8 +241,6 @@ export interface FileRoutesById {
   '/library/': typeof LibraryIndexRouteRoute
   '/experimental/book1': typeof ExperimentalBook1Route
   '/experimental/book2': typeof ExperimentalBook2Route
-  '/library/multitenancy': typeof LibraryMultitenancyRoute
-  '/library/schema-management': typeof LibrarySchemaManagementRoute
   '/library/untrusted-code-exec': typeof LibraryUntrustedCodeExecRoute
   '/profile/academic': typeof ProfileAcademicRoute
   '/skills/data': typeof SkillsDataRoute
@@ -248,6 +257,9 @@ export interface FileRoutesById {
   '/archive/_items/DVIS-data-vis-showcase': typeof ArchiveItemsDVISDataVisShowcaseRouteRoute
   '/archive/_items/HK19-hack19': typeof ArchiveItemsHK19Hack19RouteRoute
   '/archive/_items/RCLA-studio-process-automation': typeof ArchiveItemsRCLAStudioProcessAutomationRouteRoute
+  '/library/_posts/multitenancy': typeof LibraryPostsMultitenancyRoute
+  '/library/_posts/schema-management': typeof LibraryPostsSchemaManagementRoute
+  '/library/_posts/untrusted-code-execution': typeof LibraryPostsUntrustedCodeExecutionRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -259,8 +271,6 @@ export interface FileRouteTypes {
     | '/library/'
     | '/experimental/book1'
     | '/experimental/book2'
-    | '/library/multitenancy'
-    | '/library/schema-management'
     | '/library/untrusted-code-exec'
     | '/profile/academic'
     | '/skills/data'
@@ -277,6 +287,9 @@ export interface FileRouteTypes {
     | '/archive/DVIS-data-vis-showcase'
     | '/archive/HK19-hack19'
     | '/archive/RCLA-studio-process-automation'
+    | '/library/multitenancy'
+    | '/library/schema-management'
+    | '/library/untrusted-code-execution'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -285,8 +298,6 @@ export interface FileRouteTypes {
     | '/library'
     | '/experimental/book1'
     | '/experimental/book2'
-    | '/library/multitenancy'
-    | '/library/schema-management'
     | '/library/untrusted-code-exec'
     | '/profile/academic'
     | '/skills/data'
@@ -303,6 +314,9 @@ export interface FileRouteTypes {
     | '/archive/DVIS-data-vis-showcase'
     | '/archive/HK19-hack19'
     | '/archive/RCLA-studio-process-automation'
+    | '/library/multitenancy'
+    | '/library/schema-management'
+    | '/library/untrusted-code-execution'
   id:
     | '__root__'
     | '/'
@@ -312,8 +326,6 @@ export interface FileRouteTypes {
     | '/library/'
     | '/experimental/book1'
     | '/experimental/book2'
-    | '/library/multitenancy'
-    | '/library/schema-management'
     | '/library/untrusted-code-exec'
     | '/profile/academic'
     | '/skills/data'
@@ -330,6 +342,9 @@ export interface FileRouteTypes {
     | '/archive/_items/DVIS-data-vis-showcase'
     | '/archive/_items/HK19-hack19'
     | '/archive/_items/RCLA-studio-process-automation'
+    | '/library/_posts/multitenancy'
+    | '/library/_posts/schema-management'
+    | '/library/_posts/untrusted-code-execution'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -340,8 +355,6 @@ export interface RootRouteChildren {
   LibraryIndexRouteRoute: typeof LibraryIndexRouteRoute
   ExperimentalBook1Route: typeof ExperimentalBook1Route
   ExperimentalBook2Route: typeof ExperimentalBook2Route
-  LibraryMultitenancyRoute: typeof LibraryMultitenancyRoute
-  LibrarySchemaManagementRoute: typeof LibrarySchemaManagementRoute
   LibraryUntrustedCodeExecRoute: typeof LibraryUntrustedCodeExecRoute
   ProfileAcademicRoute: typeof ProfileAcademicRoute
   AboutIndexRoute: typeof AboutIndexRoute
@@ -353,6 +366,9 @@ export interface RootRouteChildren {
   ArchiveItemsDVISDataVisShowcaseRouteRoute: typeof ArchiveItemsDVISDataVisShowcaseRouteRoute
   ArchiveItemsHK19Hack19RouteRoute: typeof ArchiveItemsHK19Hack19RouteRoute
   ArchiveItemsRCLAStudioProcessAutomationRouteRoute: typeof ArchiveItemsRCLAStudioProcessAutomationRouteRoute
+  LibraryPostsMultitenancyRoute: typeof LibraryPostsMultitenancyRoute
+  LibraryPostsSchemaManagementRoute: typeof LibraryPostsSchemaManagementRoute
+  LibraryPostsUntrustedCodeExecutionRoute: typeof LibraryPostsUntrustedCodeExecutionRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -455,20 +471,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LibraryUntrustedCodeExecRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/library/schema-management': {
-      id: '/library/schema-management'
-      path: '/library/schema-management'
-      fullPath: '/library/schema-management'
-      preLoaderRoute: typeof LibrarySchemaManagementRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/library/multitenancy': {
-      id: '/library/multitenancy'
-      path: '/library/multitenancy'
-      fullPath: '/library/multitenancy'
-      preLoaderRoute: typeof LibraryMultitenancyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/experimental/book2': {
       id: '/experimental/book2'
       path: '/experimental/book2'
@@ -488,6 +490,27 @@ declare module '@tanstack/react-router' {
       path: '/library'
       fullPath: '/library/'
       preLoaderRoute: typeof LibraryIndexRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/library/_posts/untrusted-code-execution': {
+      id: '/library/_posts/untrusted-code-execution'
+      path: '/library/untrusted-code-execution'
+      fullPath: '/library/untrusted-code-execution'
+      preLoaderRoute: typeof LibraryPostsUntrustedCodeExecutionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/library/_posts/schema-management': {
+      id: '/library/_posts/schema-management'
+      path: '/library/schema-management'
+      fullPath: '/library/schema-management'
+      preLoaderRoute: typeof LibraryPostsSchemaManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/library/_posts/multitenancy': {
+      id: '/library/_posts/multitenancy'
+      path: '/library/multitenancy'
+      fullPath: '/library/multitenancy'
+      preLoaderRoute: typeof LibraryPostsMultitenancyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/archive/_items/RCLA-studio-process-automation': {
@@ -563,8 +586,6 @@ const rootRouteChildren: RootRouteChildren = {
   LibraryIndexRouteRoute: LibraryIndexRouteRoute,
   ExperimentalBook1Route: ExperimentalBook1Route,
   ExperimentalBook2Route: ExperimentalBook2Route,
-  LibraryMultitenancyRoute: LibraryMultitenancyRoute,
-  LibrarySchemaManagementRoute: LibrarySchemaManagementRoute,
   LibraryUntrustedCodeExecRoute: LibraryUntrustedCodeExecRoute,
   ProfileAcademicRoute: ProfileAcademicRoute,
   AboutIndexRoute: AboutIndexRoute,
@@ -579,6 +600,10 @@ const rootRouteChildren: RootRouteChildren = {
   ArchiveItemsHK19Hack19RouteRoute: ArchiveItemsHK19Hack19RouteRoute,
   ArchiveItemsRCLAStudioProcessAutomationRouteRoute:
     ArchiveItemsRCLAStudioProcessAutomationRouteRoute,
+  LibraryPostsMultitenancyRoute: LibraryPostsMultitenancyRoute,
+  LibraryPostsSchemaManagementRoute: LibraryPostsSchemaManagementRoute,
+  LibraryPostsUntrustedCodeExecutionRoute:
+    LibraryPostsUntrustedCodeExecutionRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

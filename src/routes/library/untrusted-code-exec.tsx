@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { SingleColumn } from "@layouts/single-column.tsx";
-import { ArticleRoot, ArticleSectionContent, ArticleSidebarStickyBlock, cn_prose } from "@components/article.tsx";
+import { ArticleRoot, ArticleSectionContent, ArticleSidebarStickyBlock, cn_prose } from "@/components/editorial/article.tsx";
 import { Footer } from "@components/footer.tsx";
 import { formatDate } from "./-format-date.ts";
 
